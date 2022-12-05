@@ -1,11 +1,26 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:eue="clr-namespace:Element5_Core.Utils.Exception;assembly=Element5.Core" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:eue="clr-namespace:Element5_Core.Utils.Exception;assembly=Element5.Core" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="FlowConfig" Type="InArgument(njl:JObject)" />
+    <x:Property sap2010:Annotation.AnnotationText="The username or mail id to login acme system " Name="AcmeUsername" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property sap2010:Annotation.AnnotationText="The password to login acme system " Name="AcmePassword" Type="InArgument(ss:SecureString)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
   </x:Members>
+  <this:Login.AcmeUsername>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Login.AcmeUsername>
+  <this:Login.AcmePassword>
+    <InArgument x:TypeArguments="ss:SecureString" />
+  </this:Login.AcmePassword>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,5109</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,7996</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="80">
@@ -106,37 +121,39 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap:VirtualizedContainerService.HintSize="887,4964" sap2010:WorkflowViewState.IdRef="Sequence_13">
+  <Sequence sap2010:Annotation.AnnotationText="Login into acme system by entering username and password" DisplayName="Acme System Login" sap:VirtualizedContainerService.HintSize="1037,7691" sap2010:WorkflowViewState.IdRef="Sequence_13">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch sap2010:Annotation.AnnotationText="Try - Login Acme Sysytem by entering credentials&#xD;&#xA;System.exception - &quot;LOGIN_FAILED&quot;&#xD;&#xA;Business.exception - rethrow" DisplayName="Try Catch - Login Acme System" sap:VirtualizedContainerService.HintSize="825,4842" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="975,101" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Acme System Login Process Started&quot;]" />
+    <TryCatch sap2010:Annotation.AnnotationText="Try - Login Acme Sysytem by entering credentials&#xD;&#xA;System.exception - &quot;LOGIN_FAILED&quot;&#xD;&#xA;Business.exception - rethrow" DisplayName="Try Catch - Login Acme System" sap:VirtualizedContainerService.HintSize="975,7256" sap2010:WorkflowViewState.IdRef="TryCatch_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="787,3898" sap2010:WorkflowViewState.IdRef="Sequence_1">
-          <Sequence.Variables>
-            <Variable x:TypeArguments="x:String" Name="AcmeUsername" />
-            <Variable x:TypeArguments="ss:SecureString" Name="AcmePassword" />
-          </Sequence.Variables>
+        <Sequence sap2010:Annotation.AnnotationText="Login into acme system by entering username and password" DisplayName="Login" sap:VirtualizedContainerService.HintSize="937,6312" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Input Validation" sap:VirtualizedContainerService.HintSize="725,615" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence sap2010:Annotation.AnnotationText="Validating the input parameters" DisplayName="Input Validation" sap:VirtualizedContainerService.HintSize="875,909" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="663,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Input validation&quot;]" />
-            <If sap2010:Annotation.AnnotationText="Then - Valid input validation&#xD;&#xA;Else - &quot;INVALID_INPUT_PARAMETERS&quot;" Condition="[Not (IsNothing(Flowconfig)) AndAlso not String.IsNullOrWhiteSpace(FlowConfig(&quot;AcmeLogin&quot;).ToString)]" DisplayName="If - Checking Input Validation" sap:VirtualizedContainerService.HintSize="663,352" sap2010:WorkflowViewState.IdRef="If_1">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="779,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Input validation&quot;]" />
+            <If sap2010:Annotation.AnnotationText="Then - Valid input validation&#xD;&#xA;Else - &quot;INVALID_INPUT_PARAMETERS&quot;" Condition="[not (string.IsNullOrWhiteSpace(AcmeUsername)) AndAlso Not (isnothing(AcmePassword))]" DisplayName="If - Checking Input Validation" sap:VirtualizedContainerService.HintSize="779,615" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -146,36 +163,44 @@
                 <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;valid Input Parameters&quot;]" />
               </If.Then>
               <If.Else>
-                <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="284,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_1" MessageCode="INVALID_INPUT_PARAMETERS" __Prefix="[IO.Directory.GetCurrentDirectory]">
-                  <eue:Throw_Business_Exception.ExtraMessage>
-                    <InArgument x:TypeArguments="x:String">
-                      <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
-                    </InArgument>
-                  </eue:Throw_Business_Exception.ExtraMessage>
-                </eue:Throw_Business_Exception>
+                <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,405" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Error" Message="[&quot;Invaid Input Parameters&quot;]" />
+                  <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_1" MessageCode="INVALID_INPUT_PARAMETERS" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                    <eue:Throw_Business_Exception.ExtraMessage>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                      </InArgument>
+                    </eue:Throw_Business_Exception.ExtraMessage>
+                  </eue:Throw_Business_Exception>
+                </Sequence>
               </If.Else>
             </If>
           </Sequence>
-          <TryCatch sap2010:Annotation.AnnotationText="Try - getting Credentials&#xD;&#xA;System.exception - &quot;GET_CREDENTIALS_FAILED&quot;" DisplayName="Try Catch - Credentials" sap:VirtualizedContainerService.HintSize="725,1308" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch sap2010:Annotation.AnnotationText="Try - Checking application is opened by attaching the window&#xA;System.exception - &quot;APPLICATION_IS_NOT_OPENED&quot;" DisplayName="Try Catch - Checking Application Is Opened" sap:VirtualizedContainerService.HintSize="875,1043" sap2010:WorkflowViewState.IdRef="TryCatch_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <Sequence sap2010:Annotation.AnnotationText="getting the credentials from the orchestrator" DisplayName="Credentials" sap:VirtualizedContainerService.HintSize="400,484" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Getting Acme System Credentials&quot;]" />
-                <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[FlowConfig(&quot;AcmeLogin&quot;).ToString]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="338,190" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[Acmepassword]" Username="[AcmeUsername]" />
-              </Sequence>
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window - Acme System Application" sap:VirtualizedContainerService.HintSize="434,219" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;wnd app='acme-system3.exe' ctrlname='Login' /&gt;">
+                <ui:WindowScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Trace" Message="[&quot;Application Is Opened&quot;]" />
+                  </ActivityAction>
+                </ui:WindowScope.Body>
+              </ui:WindowScope>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,462" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="438,462" sap2010:WorkflowViewState.IdRef="Catch`1_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -186,15 +211,14 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_17">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_1" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-                    <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_2" MessageCode="GET_CREDENTIALS_FAILED" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                    <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_5" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                    <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_7" MessageCode="APPLICATION_IS_NOT_OPENED" __Prefix="[IO.Directory.GetCurrentDirectory]">
                       <eue:Throw_Business_Exception.ExtraMessage>
                         <InArgument x:TypeArguments="x:String">
                           <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
@@ -206,7 +230,7 @@
               </Catch>
             </TryCatch.Catches>
           </TryCatch>
-          <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="dddf041b-b9e1-416f-86ff-2154be64dcca" DisplayName="CV Screen Scope - Acme system" sap:VirtualizedContainerService.HintSize="725,1773" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V5">
+          <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="dddf041b-b9e1-416f-86ff-2154be64dcca" DisplayName="CV Screen Scope - Acme system" sap:VirtualizedContainerService.HintSize="875,4127" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V5">
             <p:CVScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
@@ -222,15 +246,16 @@
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Landing Page Validation" sap:VirtualizedContainerService.HintSize="440,90" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence sap2010:Annotation.AnnotationText="Checking Landing page validation" DisplayName="Landing Page Validation" sap:VirtualizedContainerService.HintSize="841,1057" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="663,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Checking Landing Page&quot;]" />
-                    <p:CvElementExistsWithDescriptor DelayScreenshotAfterScroll="{x:Null}" sap2010:Annotation.AnnotationText="Checking Landing Page" Descriptor="[&quot;Target: Button (286,281,133,33)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Login' (335,292,32,14)&quot;]" DesignTimeCacheId="dddf041b-b9e1-416f-86ff-2154be64dcca" DesignTimeScaleFactor="1" DisplayName="CV Element Exists - Login Button" sap:VirtualizedContainerService.HintSize="663,177" sap2010:WorkflowViewState.IdRef="CvElementExistsWithDescriptor_1" InformativeScreenshot="7945e45ab2c44a39bad4d0ad8ea10df3" NumberOfScrolls="2" Result="[IsLandingPage]" ScrollDirection="None" Version="V5">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="779,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Checking Landing Page&quot;]" />
+                    <p:CvElementExistsWithDescriptor DelayScreenshotAfterScroll="{x:Null}" sap2010:Annotation.AnnotationText="Checking Landing Page" Descriptor="[&quot;Target: Button (286,281,133,33)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Login' (335,292,32,14)&quot;]" DesignTimeCacheId="dddf041b-b9e1-416f-86ff-2154be64dcca" DesignTimeScaleFactor="1" DisplayName="CV Element Exists - Login Button" sap:VirtualizedContainerService.HintSize="779,109" sap2010:WorkflowViewState.IdRef="CvElementExistsWithDescriptor_1" NumberOfScrolls="2" Result="[IsLandingPage]" ScrollDirection="None" Version="V5">
                       <p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
                         <uc:CvDescriptor Id="d1f183e1-39f8-4513-a913-0a75ac76d8d9">
                           <uc:CvDescriptor.Anchors>
@@ -249,43 +274,51 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </p:CvElementExistsWithDescriptor>
-                    <If sap2010:Annotation.AnnotationText="Then - Logging valid page&#xD;&#xA;Else - &quot;INVALID_LANDING_PAGE&quot;" Condition="[IsLandingPage]" DisplayName="If -Checking Landing Page" sap:VirtualizedContainerService.HintSize="663,352" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If sap2010:Annotation.AnnotationText="Then - Logging valid page&#xD;&#xA;Else - &quot;INVALID_LANDING_PAGE&quot;" Condition="[IsLandingPage]" DisplayName="If -Checking Landing Page" sap:VirtualizedContainerService.HintSize="779,614" sap2010:WorkflowViewState.IdRef="If_2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Valid Landing Page&quot;]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Valid Landing Page&quot;]" />
                       </If.Then>
                       <If.Else>
-                        <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="284,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_3" MessageCode="INVALID_LANDING_PAGE" __Prefix="[IO.Directory.GetCurrentDirectory]">
-                          <eue:Throw_Business_Exception.ExtraMessage>
-                            <InArgument x:TypeArguments="x:String">
-                              <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
-                            </InArgument>
-                          </eue:Throw_Business_Exception.ExtraMessage>
-                        </eue:Throw_Business_Exception>
+                        <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,405" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Error" Message="[&quot;Invalid Landing Page&quot;]" />
+                          <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_3" MessageCode="INVALID_LANDING_PAGE" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                            <eue:Throw_Business_Exception.ExtraMessage>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                              </InArgument>
+                            </eue:Throw_Business_Exception.ExtraMessage>
+                          </eue:Throw_Business_Exception>
+                        </Sequence>
                       </If.Else>
                     </If>
                   </Sequence>
-                  <TryCatch sap2010:Annotation.AnnotationText="Try - Entering Credentials&#xD;&#xA;system.exception - &quot;ENTERING_CREDENTIALS_FAILED&quot;" DisplayName="Try Catch - Login" sap:VirtualizedContainerService.HintSize="440,133" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <TryCatch sap2010:Annotation.AnnotationText="Try - Entering Credentials&#xD;&#xA;system.exception - &quot;ENTERING_CREDENTIALS_FAILED&quot;" DisplayName="Try Catch - Login" sap:VirtualizedContainerService.HintSize="841,1520" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
-                      <Sequence DisplayName="Entering Credentials" sap:VirtualizedContainerService.HintSize="400,832" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <Sequence DisplayName="Entering Credentials" sap:VirtualizedContainerService.HintSize="400,696" sap2010:WorkflowViewState.IdRef="Sequence_10">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Typing Username&quot;]" />
-                        <p:CvTypeIntoWithDescriptor DelayScreenshotAfterScroll="{x:Null}" DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (177,191,385,26)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Username' (179,173,59,12)&quot;]" DesignTimeCacheId="dddf041b-b9e1-416f-86ff-2154be64dcca" DesignTimeScaleFactor="1" DisplayName="CV Type Into - Username" EmptyField="True" sap:VirtualizedContainerService.HintSize="338,194" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" InformativeScreenshot="1b1aaa0b30488e37e95868517044eb1b" NumberOfScrolls="2" ScrollDirection="None" Text="[AcmeUsername]" Version="V5">
+                        <p:CvTypeIntoWithDescriptor DelayScreenshotAfterScroll="{x:Null}" DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (177,191,385,26)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Username' (179,173,59,12)&quot;]" DesignTimeCacheId="dddf041b-b9e1-416f-86ff-2154be64dcca" DesignTimeScaleFactor="1" DisplayName="CV Type Into - Username" EmptyField="True" sap:VirtualizedContainerService.HintSize="338,126" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" NumberOfScrolls="2" ScrollDirection="None" Text="[AcmeUsername]" Version="V5">
                           <p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
                             <uc:CvDescriptor Id="36a04444-83d3-459d-bc37-98074dc179b0">
                               <uc:CvDescriptor.Anchors>
@@ -310,7 +343,7 @@
                           </p:CvTypeIntoWithDescriptor.Target>
                         </p:CvTypeIntoWithDescriptor>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="[&quot;Typing Password&quot;]" />
-                        <p:CvTypeIntoWithDescriptor DelayScreenshotAfterScroll="{x:Null}" DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (176,241,386,26)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Password' (179,223,55,12)&quot;]" DesignTimeCacheId="dddf041b-b9e1-416f-86ff-2154be64dcca" DesignTimeScaleFactor="1" DisplayName="CV Type Into - Password" EmptyField="True" sap:VirtualizedContainerService.HintSize="338,194" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_2" InformativeScreenshot="b40d15ed4a1b0ce7a7aab9b892daab02" NumberOfScrolls="2" ScrollDirection="None" Text="[AcmePassword]" Version="V5">
+                        <p:CvTypeIntoWithDescriptor DelayScreenshotAfterScroll="{x:Null}" DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (176,241,386,26)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Password' (179,223,55,12)&quot;]" DesignTimeCacheId="dddf041b-b9e1-416f-86ff-2154be64dcca" DesignTimeScaleFactor="1" DisplayName="CV Type Into - Password" EmptyField="True" sap:VirtualizedContainerService.HintSize="338,126" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_2" NumberOfScrolls="2" ScrollDirection="None" Text="[AcmePassword]" Version="V5">
                           <p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
                             <uc:CvDescriptor Id="7357a2d5-b14c-4716-8f2a-76b3ab7fd9fe">
                               <uc:CvDescriptor.Anchors>
@@ -367,8 +400,8 @@
                       </Catch>
                     </TryCatch.Catches>
                   </TryCatch>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;Clicking Login Button&quot;]" />
-                  <TryCatch sap2010:Annotation.AnnotationText="Try - Click Login Button&#xD;&#xA;system.exception - &quot;FAILED_CLICK_LOGIN_BUTTON&quot;" DisplayName="Try Catch - Click Login Button " sap:VirtualizedContainerService.HintSize="440,1018" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="841,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;Clicking Login Button&quot;]" />
+                  <TryCatch sap2010:Annotation.AnnotationText="Try - Click Login Button&#xD;&#xA;system.exception - &quot;FAILED_CLICK_LOGIN_BUTTON&quot;" DisplayName="Try Catch - Click Login Button " sap:VirtualizedContainerService.HintSize="841,1018" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -523,7 +556,7 @@
               </ActivityFunc>
             </p:CVScope.OCREngine>
             <p:CVScope.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f05c9f7-7fe4-470d-a434-e6fc1d0a8615" InformativeScreenshot="5aa475fae358b22bd7ad441cd2ac5969" Selector="&lt;wnd app='acme-system3.exe' ctrlname='Login' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f05c9f7-7fe4-470d-a434-e6fc1d0a8615" InformativeScreenshot="5aa475fae358b22bd7ad441cd2ac5969" Selector="&lt;wnd app='acme-system3.exe' ctrlname='Login' /&gt;" WaitForReady="COMPLETE">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
@@ -542,7 +575,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="791,462" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="941,462" sap2010:WorkflowViewState.IdRef="Catch`1_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -553,7 +586,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_14">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -570,10 +603,10 @@
             </Sequence>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="791,104" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="941,104" sap2010:WorkflowViewState.IdRef="Catch`1_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -586,5 +619,6 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="975,101" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Acme System Login Process Ended&quot;]" />
   </Sequence>
 </Activity>
