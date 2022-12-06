@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GettingClientDetails" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:eue="clr-namespace:Element5_Core.Utils.Exception;assembly=Element5.Core" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GettingClientDetails" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:eue="clr-namespace:Element5_Core.Utils.Exception;assembly=Element5.Core" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Clint information from thr data table" Name="ClientInformation" Type="InArgument(sd:DataRow)">
       <x:Property.Attributes>
@@ -9,10 +9,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,3935</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,4271</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GettingClientDetails_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="66">
+    <scg:List x:TypeArguments="x:String" Capacity="35">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -51,7 +51,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -90,37 +90,40 @@
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Getting client details by enterin client id" DisplayName="Getting Client Information" sap:VirtualizedContainerService.HintSize="975,3870" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="Getting client details by enterin client id" DisplayName="Getting Client Information" sap:VirtualizedContainerService.HintSize="634,4086" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="ClientIDInfo" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch sap2010:Annotation.AnnotationText="Try - Getting Client details&#xD;&#xA;" DisplayName="Try Catch - Getting Client Information" sap:VirtualizedContainerService.HintSize="913,3717" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="Try - Getting Client details&#xD;&#xA;" DisplayName="Try Catch - Getting Client Information" sap:VirtualizedContainerService.HintSize="572,3933" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Getting Client Information by entering the client id " DisplayName="GettingClientDetails" sap:VirtualizedContainerService.HintSize="875,3460" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="Getting Client Information by entering the client id " DisplayName="GettingClientDetails" sap:VirtualizedContainerService.HintSize="534,3654" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <TryCatch sap2010:Annotation.AnnotationText="Try - Checking application is opened by attaching the window&#xA;System.exception - &quot;APPLICATION_IS_NOT_OPENED&quot;" DisplayName="Try Catch - Checking Application Is Opened" sap:VirtualizedContainerService.HintSize="813,498" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+          <TryCatch sap2010:Annotation.AnnotationText="Try - Checking application is opened by attaching the window&#xA;System.exception - &quot;APPLICATION_IS_NOT_OPENED&quot;" DisplayName="Try Catch - Checking Application Is Opened" sap:VirtualizedContainerService.HintSize="472,538" sap2010:WorkflowViewState.IdRef="TryCatch_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window - Acme System Application" sap:VirtualizedContainerService.HintSize="434,219" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;wnd app='acme-system3.exe' ctrlname='SearchingClient' /&gt;">
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window - Acme System Application" sap:VirtualizedContainerService.HintSize="434,259" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;wnd app='acme-system3.exe' ctrlname='SearchingClient' /&gt;">
                 <ui:WindowScope.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
@@ -132,7 +135,7 @@
               </ui:WindowScope>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="438,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -162,7 +165,7 @@
               </Catch>
             </TryCatch.Catches>
           </TryCatch>
-          <Sequence sap2010:Annotation.AnnotationText="Validating the input parameters" DisplayName="Input Validation" sap:VirtualizedContainerService.HintSize="813,121" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence sap2010:Annotation.AnnotationText="Validating the input parameters" DisplayName="Input Validation" sap:VirtualizedContainerService.HintSize="472,121" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -199,7 +202,7 @@
               </If.Else>
             </If>
           </Sequence>
-          <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DisplayName="CV Screen Scope  - Acme System" sap:VirtualizedContainerService.HintSize="813,2608" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V5">
+          <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DisplayName="CV Screen Scope  - Acme System" sap:VirtualizedContainerService.HintSize="472,2762" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V5">
             <p:CVScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
@@ -208,13 +211,14 @@
                 <Sequence DisplayName="Getting Cient Information" sap:VirtualizedContainerService.HintSize="841,1878" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="IsLandingPage" />
+                    <Variable x:TypeArguments="x:String" Name="ClientInfo" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <p:CvElementExistsWithDescriptor DelayScreenshotAfterScroll="{x:Null}" Descriptor="[&quot;Target: InputBox (18,162,698,26)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Search Form' (21,143,72,12)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Element Exists - Search Box" sap:VirtualizedContainerService.HintSize="779,78" sap2010:WorkflowViewState.IdRef="CvElementExistsWithDescriptor_1" NumberOfScrolls="2" Result="[IsLandingPage]" ScrollDirection="None" Version="V5">
+                  <p:CvElementExistsWithDescriptor DelayScreenshotAfterScroll="{x:Null}" Descriptor="[&quot;Target: InputBox (18,162,698,26)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Search Form' (21,143,72,12)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Element Exists - Search Box" sap:VirtualizedContainerService.HintSize="438,78" sap2010:WorkflowViewState.IdRef="CvElementExistsWithDescriptor_1" NumberOfScrolls="2" Result="[IsLandingPage]" ScrollDirection="None" Version="V5">
                     <p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
                       <uc:CvDescriptor Id="d083d1ec-b4cb-441c-a231-f5e0af02dcce">
                         <uc:CvDescriptor.Anchors>
@@ -228,11 +232,11 @@
                       </uc:CvDescriptor>
                     </p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
                   </p:CvElementExistsWithDescriptor>
-                  <If sap2010:Annotation.AnnotationText="Then - Logging valid landing page&#xA;Else - &quot;INVALID_LANDING_PAGE&quot;" Condition="[IsLandingPage]" DisplayName="If -Checking Landing Page" sap:VirtualizedContainerService.HintSize="779,614" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If sap2010:Annotation.AnnotationText="Then - Logging valid landing page&#xA;Else - &quot;INVALID_LANDING_PAGE&quot;" Condition="[IsLandingPage]" DisplayName="If -Checking Landing Page" sap:VirtualizedContainerService.HintSize="438,103" sap2010:WorkflowViewState.IdRef="If_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -257,20 +261,30 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <TryCatch sap2010:Annotation.AnnotationText="Try - entering client id and getting client details&#xD;&#xA;System.exception - &quot;FAILED_ENTER_CLIENT_ID&quot;" DisplayName="Try Catch  - Entering Client Id" sap:VirtualizedContainerService.HintSize="779,1234" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <TryCatch sap2010:Annotation.AnnotationText="Try - entering client id and getting client details&#xD;&#xA;System.exception - &quot;FAILED_ENTER_CLIENT_ID&quot;" DisplayName="Try Catch  - Entering Client Id" sap:VirtualizedContainerService.HintSize="438,1344" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
-                      <Sequence DisplayName="Entering Client Id" sap:VirtualizedContainerService.HintSize="400,955" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence DisplayName="Entering Client Id" sap:VirtualizedContainerService.HintSize="400,1065" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Entering Client Id&quot;]" />
+                        <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_1">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[ClientIDInfo]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[ClientInformation("ClientID").ToString]</InArgument>
+                          </Assign.Value>
+                        </Assign>
                         <p:CvTypeIntoWithDescriptor DelayScreenshotAfterScroll="{x:Null}" DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (18,162,698,26)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Search Form' (21,143,72,12)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Type Into - Entering Client Id" EmptyField="True" sap:VirtualizedContainerService.HintSize="338,126" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" NumberOfScrolls="2" ScrollDirection="None" Text="[ClientInformation(&quot;ClientID&quot;).ToString]" Version="V5">
                           <p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
                             <uc:CvDescriptor Id="4ffc4603-8afe-4217-8db1-97f85ac9edc7">
@@ -359,7 +373,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                          <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,383" sap2010:WorkflowViewState.IdRef="Sequence_8">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -378,8 +392,8 @@
                       </Catch>
                     </TryCatch.Catches>
                   </TryCatch>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="779,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;Clicking Client Info&quot;]" />
-                  <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text 'No search results' (95,277,97,12)&quot; +&#xD;&#xA;&quot;Anchor: Cell (88,272,300,16)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Click - Text" sap:VirtualizedContainerService.HintSize="779,126" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_2" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;Clicking Client Info&quot;]" />
+                  <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" Descriptor="[&quot;Target: Text '&quot;+ClientIDInfo+&quot;' (20,276,52,13)&quot; +&#xD;&#xA;&quot;Anchor: Text 'ClientID' (19,255,46,12)&quot;]" DesignTimeCacheId="a23c84a1-a588-496c-bfe7-19258d22dea9" DesignTimeScaleFactor="1" DisplayName="CV Click - Client ID" sap:VirtualizedContainerService.HintSize="438,126" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_3" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
                     <p:CvClickWithDescriptor.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -391,19 +405,19 @@
                       </ui:CursorPosition>
                     </p:CvClickWithDescriptor.CursorPosition>
                     <p:CvClickWithDescriptor.DesignTimeDescriptor>
-                      <uc:CvDescriptor Id="f18848a7-dcd7-4aa1-8c67-a5027552537f">
+                      <uc:CvDescriptor Id="748708e0-80fe-47d1-85ba-c22d2b4f6ac0">
                         <uc:CvDescriptor.Anchors>
                           <x:Array Type="uc:CvElementDescriptor">
-                            <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="88, 272, 300, 16" ElementType="Cell" />
+                            <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="19, 255, 46, 12" ElementType="Text" Text="ClientID" />
                           </x:Array>
                         </uc:CvDescriptor.Anchors>
                         <uc:CvDescriptor.Target>
-                          <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="95, 277, 97, 12" ElementType="Text" Text="No search results" />
+                          <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="20, 276, 52, 13" ElementType="Text" Text="EU67601" />
                         </uc:CvDescriptor.Target>
                       </uc:CvDescriptor>
                     </p:CvClickWithDescriptor.DesignTimeDescriptor>
                     <p:CvClickWithDescriptor.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="f612dc91-6669-41fd-b8dc-3398ebf2d92d">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="ae2410c8-a1e1-430b-8594-ce9e4734fb73">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
@@ -413,14 +427,51 @@
                       </ui:Target>
                     </p:CvClickWithDescriptor.Target>
                   </p:CvClickWithDescriptor>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="438,411" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,283" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <p:CvGetTextWithDescriptor DelayScreenshotAfterScroll="{x:Null}" Descriptor="[&quot;Target: AnyWordGroup (21,183,72,16)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Client Details' (21,151,73,12)&quot;]" DesignTimeCacheId="6fdddffd-ae87-49af-91d1-6c56e8c11265" DesignTimeScaleFactor="1" DisplayName="CV Get Text - Any Word Group" sap:VirtualizedContainerService.HintSize="338,161" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_1" NumberOfScrolls="2" RefreshBefore="True" ScrollDirection="None" Version="V5">
+                          <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+                            <uc:CvDescriptor Id="82412719-83c8-4a95-a5da-2ce2f3279f06">
+                              <uc:CvDescriptor.Anchors>
+                                <x:Array Type="uc:CvElementDescriptor">
+                                  <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="21, 151, 73, 12" ElementType="Text" Text="Client Details" />
+                                </x:Array>
+                              </uc:CvDescriptor.Anchors>
+                              <uc:CvDescriptor.Target>
+                                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="21, 183, 72, 16" ElementType="AnyWordGroup" />
+                              </uc:CvDescriptor.Target>
+                            </uc:CvDescriptor>
+                          </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+                        </p:CvGetTextWithDescriptor>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                  </ui:CommentOut>
+                  <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text 'WindowsForms10.STATIC.a...'" sap:VirtualizedContainerService.HintSize="438,96" sap2010:WorkflowViewState.IdRef="GetFullText_1">
+                    <ui:GetFullText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9d72b58e-2100-4d2a-a63a-c6e43ba8150a" Selector="&lt;wnd app='acme-system3.exe' ctrlname='ClientDetails' /&gt;&lt;wnd ctrlname='groupBox1' /&gt;&lt;wnd ctrlname='label3' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:GetFullText.Target>
+                    <ui:GetFullText.Text>
+                      <OutArgument x:TypeArguments="x:String">[ClientInfo]</OutArgument>
+                    </ui:GetFullText.Text>
+                  </ui:GetFullText>
                 </Sequence>
               </ActivityAction>
             </p:CVScope.Body>
             <p:CVScope.DesignTimeCacheContainer>
               <uc:CvCacheContainer>
                 <uc:CvCacheContainer.Caches>
-                  <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
-                    <uc:CVCache DataSent="False" DisplayName="Screen CV Element Exists - Inp (Main)" Id="554ff8b9-2a38-4c5b-9189-2417fbf77700" InformativeScreenshot="469d5568c72a7c5600211a4e59d2c3bd" LogicalPosition="733, 358" OcrText="ACME System 3 X Search for Client by ID Search using the form and the results will be displayed below. Search Form Include inactive clients Search ClientID Name City Country No search results" Position="733, 358" ScreenshotGuid="91cbb5d8-ef52-4d26-9968-d340761fad59" ServerVersion="1">
+                  <scg:List x:TypeArguments="uc:CVCache" Capacity="6">
+                    <uc:CVCache DataSent="False" DisplayName="Screen CV Element Exists - Inp (Main)" Id="554ff8b9-2a38-4c5b-9189-2417fbf77700" InformativeScreenshot="469d5568c72a7c5600211a4e59d2c3bd" LogicalPosition="706, 220" OcrText="ACME System 3 X Search for Client by ID Search using the form and the results will be displayed below. Search Form Include inactive clients Search ClientID Name City Country No search results" Position="706, 220" ScreenshotGuid="91cbb5d8-ef52-4d26-9968-d340761fad59" ServerVersion="1">
                       <uc:CVCache.CvAnchorRelations>
                         <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="4">
                           <uc:AnchorRelationInfo IsTargetText="False" Target="1">
@@ -577,6 +628,243 @@
                         </scg:List>
                       </uc:CVCache.OcrTexts>
                     </uc:CVCache>
+                    <uc:CVCache DataSent="False" DisplayName="Screen CV Click - Table Cell " Id="a23c84a1-a588-496c-bfe7-19258d22dea9" InformativeScreenshot="817cde253c1887f0a778374e33cfaa90" LogicalPosition="624, 349" OcrText="ACME System 3 X Search for Client by ID Search using the form and the results will be displayed below. Search Form EU67601 Include inactive clients Search ClientID Name City Country EU67601 Floy Shedd TOULOUSE 90 quai Saint-Nicolas" Position="624, 349" ScreenshotGuid="1fc799a1-13ef-4599-a58e-ff2942ceff72" ServerVersion="1">
+                      <uc:CVCache.CvAnchorRelations>
+                        <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="4">
+                          <uc:AnchorRelationInfo IsTargetText="False" Target="1">
+                            <uc:AnchorRelationInfo.Anchors>
+                              <x:Array Type="x:Int32">
+                                <x:Int32>23</x:Int32>
+                                <x:Int32>24</x:Int32>
+                                <x:Int32>25</x:Int32>
+                              </x:Array>
+                            </uc:AnchorRelationInfo.Anchors>
+                          </uc:AnchorRelationInfo>
+                          <uc:AnchorRelationInfo IsTargetText="False" Target="0">
+                            <uc:AnchorRelationInfo.Anchors>
+                              <x:Array Type="x:Int32">
+                                <x:Int32>20</x:Int32>
+                                <x:Int32>21</x:Int32>
+                              </x:Array>
+                            </uc:AnchorRelationInfo.Anchors>
+                          </uc:AnchorRelationInfo>
+                        </scg:List>
+                      </uc:CVCache.CvAnchorRelations>
+                      <uc:CVCache.CvTables>
+                        <x:Array Type="uc:CvTableInfo">
+                          <uc:CvTableInfo>
+                            <uc:CvTableInfo.Columns>
+                              <x:Array Type="x:Int32">
+                                <x:Int32>14</x:Int32>
+                                <x:Int32>87</x:Int32>
+                                <x:Int32>388</x:Int32>
+                                <x:Int32>538</x:Int32>
+                                <x:Int32>688</x:Int32>
+                                <x:Int32>720</x:Int32>
+                                <x:Int32>726</x:Int32>
+                              </x:Array>
+                            </uc:CvTableInfo.Columns>
+                            <uc:CvTableInfo.Rows>
+                              <x:Array Type="x:Int32">
+                                <x:Int32>245</x:Int32>
+                                <x:Int32>271</x:Int32>
+                                <x:Int32>289</x:Int32>
+                                <x:Int32>308</x:Int32>
+                                <x:Int32>327</x:Int32>
+                                <x:Int32>346</x:Int32>
+                                <x:Int32>366</x:Int32>
+                                <x:Int32>384</x:Int32>
+                                <x:Int32>402</x:Int32>
+                                <x:Int32>422</x:Int32>
+                                <x:Int32>444</x:Int32>
+                                <x:Int32>448</x:Int32>
+                              </x:Array>
+                            </uc:CvTableInfo.Rows>
+                          </uc:CvTableInfo>
+                        </x:Array>
+                      </uc:CVCache.CvTables>
+                      <uc:CVCache.CvUiElements>
+                        <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="64">
+                          <uc:CvElementInfo Category="InputBox" Region="17, 162, 699, 26" />
+                          <uc:CvElementInfo Category="CheckBox" Region="18, 209, 15, 15" />
+                          <uc:CvElementInfo Category="Icon" Region="8, 6, 18, 19" />
+                          <uc:CvElementInfo Category="Button" Region="595, 200, 121, 36" />
+                          <uc:CvElementInfo Category="CloseButton" Region="710, 7, 17, 17" />
+                          <uc:CvElementInfo Category="Cell" Region="14, 271, 73, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="14, 384, 73, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="388, 271, 150, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="538, 271, 150, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="14, 308, 73, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="538, 245, 150, 26" />
+                          <uc:CvElementInfo Category="Cell" Region="14, 327, 73, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="14, 245, 73, 26" />
+                          <uc:CvElementInfo Category="Cell" Region="14, 402, 73, 20" />
+                          <uc:CvElementInfo Category="Cell" Region="538, 402, 150, 20" />
+                          <uc:CvElementInfo Category="Cell" Region="388, 346, 150, 20" />
+                          <uc:CvElementInfo Category="Cell" Region="688, 289, 32, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="538, 327, 150, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="388, 308, 150, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="538, 308, 150, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="87, 289, 301, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="538, 384, 150, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="14, 346, 73, 20" />
+                          <uc:CvElementInfo Category="Cell" Region="87, 245, 301, 26" />
+                          <uc:CvElementInfo Category="Cell" Region="388, 384, 150, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="688, 308, 32, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="538, 366, 150, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="388, 327, 150, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="688, 327, 32, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="87, 271, 301, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="14, 289, 73, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="388, 402, 150, 20" />
+                          <uc:CvElementInfo Category="Cell" Region="388, 289, 150, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="538, 346, 150, 20" />
+                          <uc:CvElementInfo Category="Cell" Region="388, 245, 150, 26" />
+                          <uc:CvElementInfo Category="Cell" Region="538, 289, 150, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="388, 366, 150, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="14, 366, 73, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="14, 422, 73, 22" />
+                          <uc:CvElementInfo Category="Cell" Region="688, 346, 32, 20" />
+                          <uc:CvElementInfo Category="Cell" Region="87, 384, 301, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="87, 327, 301, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="388, 422, 150, 22" />
+                          <uc:CvElementInfo Category="Cell" Region="538, 422, 150, 22" />
+                          <uc:CvElementInfo Category="Cell" Region="87, 366, 301, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="87, 346, 301, 20" />
+                          <uc:CvElementInfo Category="Cell" Region="87, 308, 301, 19" />
+                          <uc:CvElementInfo Category="Cell" Region="87, 422, 301, 22" />
+                          <uc:CvElementInfo Category="Cell" Region="87, 402, 301, 20" />
+                          <uc:CvElementInfo Category="Cell" Region="688, 366, 32, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="688, 402, 32, 20" />
+                          <uc:CvElementInfo Category="Cell" Region="688, 384, 32, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="688, 422, 32, 22" />
+                          <uc:CvElementInfo Category="Cell" Region="688, 271, 32, 18" />
+                          <uc:CvElementInfo Category="Cell" Region="688, 245, 32, 26" />
+                          <uc:CvElementInfo Category="Cell" Region="538, 444, 150, 4" />
+                          <uc:CvElementInfo Category="Cell" Region="14, 444, 73, 4" />
+                          <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="87, 444, 301, 4" />
+                          <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="388, 444, 150, 4" />
+                          <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="688, 444, 32, 4" />
+                          <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="41, 159, 663, 27" />
+                        </scg:List>
+                      </uc:CVCache.CvUiElements>
+                      <uc:CVCache.OcrTexts>
+                        <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="64">
+                          <uc:OcrTextInfo Region="28, 9, 35, 12" Text="ACME" />
+                          <uc:OcrTextInfo Region="65, 9, 39, 15" Text="System" />
+                          <uc:OcrTextInfo Region="106, 9, 7, 12" Text="3" />
+                          <uc:OcrTextInfo Region="711, 8, 13, 13" Text="X" />
+                          <uc:OcrTextInfo Region="244, 56, 77, 20" Text="Search" />
+                          <uc:OcrTextInfo Region="325, 56, 32, 20" Text="for" />
+                          <uc:OcrTextInfo Region="360, 56, 66, 20" Text="Client" />
+                          <uc:OcrTextInfo Region="430, 56, 27, 24" Text="by" />
+                          <uc:OcrTextInfo Region="462, 55, 26, 21" Text="ID" />
+                          <uc:OcrTextInfo Region="198, 112, 40, 12" Text="Search" />
+                          <uc:OcrTextInfo Region="240, 112, 31, 14" Text="using" />
+                          <uc:OcrTextInfo Region="272, 112, 19, 12" Text="the" />
+                          <uc:OcrTextInfo Region="292, 112, 27, 12" Text="form" />
+                          <uc:OcrTextInfo Region="321, 112, 22, 12" Text="and" />
+                          <uc:OcrTextInfo Region="344, 112, 20, 12" Text="the" />
+                          <uc:OcrTextInfo Region="365, 112, 37, 12" Text="results" />
+                          <uc:OcrTextInfo Region="403, 112, 20, 12" Text="will" />
+                          <uc:OcrTextInfo Region="425, 112, 15, 12" Text="be" />
+                          <uc:OcrTextInfo Region="442, 112, 53, 14" Text="displayed" />
+                          <uc:OcrTextInfo Region="497, 112, 37, 12" Text="below." />
+                          <uc:OcrTextInfo Region="21, 143, 40, 12" Text="Search" />
+                          <uc:OcrTextInfo Region="63, 143, 30, 12" Text="Form" />
+                          <uc:OcrTextInfo Region="21, 168, 61, 14" Text="EU67601" />
+                          <uc:OcrTextInfo Region="37, 211, 41, 12" Text="Include" />
+                          <uc:OcrTextInfo Region="80, 211, 42, 12" Text="inactive" />
+                          <uc:OcrTextInfo Region="124, 211, 37, 12" Text="clients" />
+                          <uc:OcrTextInfo Region="634, 212, 40, 12" Text="Search" />
+                          <uc:OcrTextInfo Region="19, 255, 46, 12" Text="ClientID" />
+                          <uc:OcrTextInfo Region="95, 255, 36, 12" Text="Name" />
+                          <uc:OcrTextInfo Region="394, 255, 22, 14" Text="City" />
+                          <uc:OcrTextInfo Region="545, 255, 44, 14" Text="Country" />
+                          <uc:OcrTextInfo Region="20, 276, 52, 13" Text="EU67601" />
+                          <uc:OcrTextInfo Region="95, 277, 25, 13" Text="Floy" />
+                          <uc:OcrTextInfo Region="120, 277, 38, 12" Text="Shedd" />
+                          <uc:OcrTextInfo Region="394, 277, 68, 12" Text="TOULOUSE" />
+                          <uc:OcrTextInfo Region="545, 277, 15, 12" Text="90" />
+                          <uc:OcrTextInfo Region="562, 278, 25, 12" Text="quai" />
+                          <uc:OcrTextInfo Region="589, 277, 75, 12" Text="Saint-Nicolas" />
+                        </scg:List>
+                      </uc:CVCache.OcrTexts>
+                    </uc:CVCache>
+                    <uc:CVCache DataSent="False" DisplayName="Screen CV Get Text - '' " Id="6fdddffd-ae87-49af-91d1-6c56e8c11265" InformativeScreenshot="aa4269f655a0438c25426f19def2c121" LogicalPosition="624, 349" OcrText="ACME System 3 X Client Details For this particular client. you may consult the Account Movements and Issued Checks Client Details Floy Shedd Address: 90 quai Saint-Nicolas City: TOULOUSE Country: France Client Accounts Client Checks Change Client Details" Position="624, 349" ScreenshotGuid="6ae399b8-ea9b-4f50-8108-568a7d29d1db" ServerVersion="1">
+                      <uc:CVCache.CvAnchorRelations>
+                        <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="4">
+                          <uc:AnchorRelationInfo IsTargetText="True" Target="30">
+                            <uc:AnchorRelationInfo.Anchors>
+                              <x:Array Type="x:Int32">
+                                <x:Int32>29</x:Int32>
+                              </x:Array>
+                            </uc:AnchorRelationInfo.Anchors>
+                          </uc:AnchorRelationInfo>
+                          <uc:AnchorRelationInfo IsTargetText="True" Target="28">
+                            <uc:AnchorRelationInfo.Anchors>
+                              <x:Array Type="x:Int32">
+                                <x:Int32>27</x:Int32>
+                              </x:Array>
+                            </uc:AnchorRelationInfo.Anchors>
+                          </uc:AnchorRelationInfo>
+                        </scg:List>
+                      </uc:CVCache.CvAnchorRelations>
+                      <uc:CVCache.CvUiElements>
+                        <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="8">
+                          <uc:CvElementInfo Category="Button" Region="253, 392, 230, 38" />
+                          <uc:CvElementInfo Category="Button" Region="13, 393, 230, 37" />
+                          <uc:CvElementInfo Category="Icon" Region="8, 6, 18, 19" />
+                          <uc:CvElementInfo Category="Button" Region="490, 391, 231, 40" />
+                          <uc:CvElementInfo Category="CloseButton" Region="710, 7, 17, 17" />
+                          <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="11, 157, 710, 158" />
+                          <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1, 37, 731, 58" />
+                          <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="10, 99, 718, 37" />
+                        </scg:List>
+                      </uc:CVCache.CvUiElements>
+                      <uc:CVCache.OcrTexts>
+                        <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="64">
+                          <uc:OcrTextInfo Region="28, 9, 35, 12" Text="ACME" />
+                          <uc:OcrTextInfo Region="65, 9, 39, 15" Text="System" />
+                          <uc:OcrTextInfo Region="106, 9, 7, 12" Text="3" />
+                          <uc:OcrTextInfo Region="711, 8, 13, 13" Text="X" />
+                          <uc:OcrTextInfo Region="292, 55, 66, 21" Text="Client" />
+                          <uc:OcrTextInfo Region="362, 56, 76, 20" Text="Details" />
+                          <uc:OcrTextInfo Region="136, 112, 20, 12" Text="For" />
+                          <uc:OcrTextInfo Region="156, 112, 21, 12" Text="this" />
+                          <uc:OcrTextInfo Region="179, 112, 52, 14" Text="particular" />
+                          <uc:OcrTextInfo Region="233, 112, 33, 12" Text="client." />
+                          <uc:OcrTextInfo Region="267, 115, 21, 11" Text="you" />
+                          <uc:OcrTextInfo Region="290, 115, 25, 11" Text="may" />
+                          <uc:OcrTextInfo Region="316, 113, 41, 11" Text="consult" />
+                          <uc:OcrTextInfo Region="357, 112, 19, 12" Text="the" />
+                          <uc:OcrTextInfo Region="377, 112, 46, 12" Text="Account" />
+                          <uc:OcrTextInfo Region="424, 112, 65, 12" Text="Movements" />
+                          <uc:OcrTextInfo Region="490, 112, 23, 12" Text="and" />
+                          <uc:OcrTextInfo Region="515, 112, 37, 12" Text="Issued" />
+                          <uc:OcrTextInfo Region="554, 112, 41, 12" Text="Checks" />
+                          <uc:OcrTextInfo Region="21, 151, 33, 12" Text="Client" />
+                          <uc:OcrTextInfo Region="55, 151, 39, 12" Text="Details" />
+                          <uc:OcrTextInfo Region="21, 183, 28, 16" Text="Floy" />
+                          <uc:OcrTextInfo Region="51, 183, 42, 13" Text="Shedd" />
+                          <uc:OcrTextInfo Region="20, 200, 58, 13" Text="Address:" />
+                          <uc:OcrTextInfo Region="81, 200, 17, 13" Text="90" />
+                          <uc:OcrTextInfo Region="100, 200, 30, 16" Text="quai" />
+                          <uc:OcrTextInfo Region="131, 200, 86, 13" Text="Saint-Nicolas" />
+                          <uc:OcrTextInfo Region="21, 217, 28, 16" Text="City:" />
+                          <uc:OcrTextInfo Region="52, 217, 78, 13" Text="TOULOUSE" />
+                          <uc:OcrTextInfo Region="21, 234, 54, 16" Text="Country:" />
+                          <uc:OcrTextInfo Region="78, 234, 46, 13" Text="France" />
+                          <uc:OcrTextInfo Region="84, 405, 34, 12" Text="Client" />
+                          <uc:OcrTextInfo Region="118, 405, 52, 12" Text="Accounts" />
+                          <uc:OcrTextInfo Region="328, 405, 34, 12" Text="Client" />
+                          <uc:OcrTextInfo Region="363, 405, 42, 12" Text="Checks" />
+                          <uc:OcrTextInfo Region="545, 405, 44, 14" Text="Change" />
+                          <uc:OcrTextInfo Region="591, 405, 33, 12" Text="Client" />
+                          <uc:OcrTextInfo Region="625, 405, 40, 12" Text="Details" />
+                        </scg:List>
+                      </uc:CVCache.OcrTexts>
+                    </uc:CVCache>
                   </scg:List>
                 </uc:CvCacheContainer.Caches>
               </uc:CvCacheContainer>
@@ -602,6 +890,36 @@
           </p:CVScope>
         </Sequence>
       </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="538,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_3" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+              <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_5" MessageCode="GETTING_CLIENT_DETAILS_FAILED" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                <eue:Throw_Business_Exception.ExtraMessage>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                  </InArgument>
+                </eue:Throw_Business_Exception.ExtraMessage>
+              </eue:Throw_Business_Exception>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
     </TryCatch>
   </Sequence>
 </Activity>
