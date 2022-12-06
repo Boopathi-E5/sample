@@ -1,18 +1,19 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GettingClientDetails" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:eue="clr-namespace:Element5_Core.Utils.Exception;assembly=Element5.Core" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GettingClientDetails" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:eue="clr-namespace:Element5_Core.Utils.Exception;assembly=Element5.Core" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Clint information from thr data table" Name="ClientInformation" Type="InArgument(sd:DataRow)">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
+    <x:Property sap2010:Annotation.AnnotationText="To store the client information" Name="ClientTable" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,4271</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,4082</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GettingClientDetails_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="35">
+    <scg:List x:TypeArguments="x:String" Capacity="72">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -48,10 +49,13 @@
       <x:String>UiPath.CV.Activities.Interfaces</x:String>
       <x:String>UiPath.UIAutomationNext.Enums</x:String>
       <x:String>UiPath.Activities.System.Properties</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
+    <sco:Collection x:TypeArguments="AssemblyReference">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -88,11 +92,11 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-    </scg:List>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Getting client details by enterin client id" DisplayName="Getting Client Information" sap:VirtualizedContainerService.HintSize="634,4086" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="Getting client details by enterin client id" DisplayName="Getting Client Information" sap:VirtualizedContainerService.HintSize="634,4017" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ClientIDInfo" />
     </Sequence.Variables>
@@ -102,28 +106,31 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch sap2010:Annotation.AnnotationText="Try - Getting Client details&#xD;&#xA;" DisplayName="Try Catch - Getting Client Information" sap:VirtualizedContainerService.HintSize="572,3933" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="Try - Getting Client details&#xA;" DisplayName="Try Catch - Getting Client Information" sap:VirtualizedContainerService.HintSize="572,3864" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Getting Client Information by entering the client id " DisplayName="GettingClientDetails" sap:VirtualizedContainerService.HintSize="534,3654" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="Getting Client Information by entering the client id " DisplayName="GettingClientDetails" sap:VirtualizedContainerService.HintSize="534,3585" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="ClientInfo" />
+          </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <TryCatch sap2010:Annotation.AnnotationText="Try - Checking application is opened by attaching the window&#xA;System.exception - &quot;APPLICATION_IS_NOT_OPENED&quot;" DisplayName="Try Catch - Checking Application Is Opened" sap:VirtualizedContainerService.HintSize="472,538" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+          <TryCatch sap2010:Annotation.AnnotationText="Try - Checking application is opened by attaching the window&#xA;System.exception - &quot;APPLICATION_IS_NOT_OPENED&quot;" DisplayName="Try Catch - Checking Application Is Opened" sap:VirtualizedContainerService.HintSize="472,498" sap2010:WorkflowViewState.IdRef="TryCatch_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window - Acme System Application" sap:VirtualizedContainerService.HintSize="434,259" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;wnd app='acme-system3.exe' ctrlname='SearchingClient' /&gt;">
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window - Acme System Application" sap:VirtualizedContainerService.HintSize="434,219" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;wnd app='acme-system3.exe' ctrlname='SearchingClient' /&gt;">
                 <ui:WindowScope.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
@@ -135,7 +142,7 @@
               </ui:WindowScope>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="438,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -202,23 +209,27 @@
               </If.Else>
             </If>
           </Sequence>
-          <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DisplayName="CV Screen Scope  - Acme System" sap:VirtualizedContainerService.HintSize="472,2762" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V5">
+          <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="e257b9ad-3ccd-48f9-8876-ffd9f1cc5885" DisplayName="CV Screen Scope  - Acme System" sap:VirtualizedContainerService.HintSize="472,2733" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V5">
             <p:CVScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Getting Cient Information" sap:VirtualizedContainerService.HintSize="841,1878" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="Getting Cient Information" sap:VirtualizedContainerService.HintSize="502,3570" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="IsLandingPage" />
-                    <Variable x:TypeArguments="x:String" Name="ClientInfo" />
+                    <Variable x:TypeArguments="x:String" Name="ClientName" />
+                    <Variable x:TypeArguments="x:String" Name="ClientAddress" />
+                    <Variable x:TypeArguments="x:String" Name="Client" />
+                    <Variable x:TypeArguments="x:String" Name="ClientCity" />
+                    <Variable x:TypeArguments="x:String" Name="ClientCountry" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <p:CvElementExistsWithDescriptor DelayScreenshotAfterScroll="{x:Null}" Descriptor="[&quot;Target: InputBox (18,162,698,26)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Search Form' (21,143,72,12)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Element Exists - Search Box" sap:VirtualizedContainerService.HintSize="438,78" sap2010:WorkflowViewState.IdRef="CvElementExistsWithDescriptor_1" NumberOfScrolls="2" Result="[IsLandingPage]" ScrollDirection="None" Version="V5">
+                  <p:CvElementExistsWithDescriptor DelayScreenshotAfterScroll="{x:Null}" Descriptor="[&quot;Target: InputBox (18,162,698,26)&quot; +&#xA;&quot;Anchor: Text 'Search Form' (21,143,72,12)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Element Exists - Search Box" sap:VirtualizedContainerService.HintSize="438,78" sap2010:WorkflowViewState.IdRef="CvElementExistsWithDescriptor_1" NumberOfScrolls="2" Result="[IsLandingPage]" ScrollDirection="None" Version="V5">
                     <p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
                       <uc:CvDescriptor Id="d083d1ec-b4cb-441c-a231-f5e0af02dcce">
                         <uc:CvDescriptor.Anchors>
@@ -261,7 +272,7 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <TryCatch sap2010:Annotation.AnnotationText="Try - entering client id and getting client details&#xD;&#xA;System.exception - &quot;FAILED_ENTER_CLIENT_ID&quot;" DisplayName="Try Catch  - Entering Client Id" sap:VirtualizedContainerService.HintSize="438,1344" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <TryCatch sap2010:Annotation.AnnotationText="Try - entering client id and getting client details&#xA;System.exception - &quot;FAILED_ENTER_CLIENT_ID&quot;" DisplayName="Try Catch  - Entering Client Id" sap:VirtualizedContainerService.HintSize="438,235" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -285,7 +296,7 @@
                             <InArgument x:TypeArguments="x:String">[ClientInformation("ClientID").ToString]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <p:CvTypeIntoWithDescriptor DelayScreenshotAfterScroll="{x:Null}" DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (18,162,698,26)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Search Form' (21,143,72,12)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Type Into - Entering Client Id" EmptyField="True" sap:VirtualizedContainerService.HintSize="338,126" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" NumberOfScrolls="2" ScrollDirection="None" Text="[ClientInformation(&quot;ClientID&quot;).ToString]" Version="V5">
+                        <p:CvTypeIntoWithDescriptor DelayScreenshotAfterScroll="{x:Null}" DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (18,162,698,26)&quot; +&#xA;&quot;Anchor: Text 'Search Form' (21,143,72,12)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Type Into - Entering Client Id" EmptyField="True" sap:VirtualizedContainerService.HintSize="338,126" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" NumberOfScrolls="2" ScrollDirection="None" Text="[ClientInformation(&quot;ClientID&quot;).ToString]" Version="V5">
                           <p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
                             <uc:CvDescriptor Id="4ffc4603-8afe-4217-8db1-97f85ac9edc7">
                               <uc:CvDescriptor.Anchors>
@@ -310,7 +321,7 @@
                           </p:CvTypeIntoWithDescriptor.Target>
                         </p:CvTypeIntoWithDescriptor>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="[&quot;Clicking CheckBox&quot;]" />
-                        <p:CvCheckWithDescriptor DelayScreenshotAfterScroll="{x:Null}" InRegion="{x:Null}" Action="Check" Descriptor="[&quot;Target: CheckBox (18,209,15,15)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Include inactive clients' (37,211,124,12)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Check - CheckBox" sap:VirtualizedContainerService.HintSize="338,78" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_1" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
+                        <p:CvCheckWithDescriptor DelayScreenshotAfterScroll="{x:Null}" InRegion="{x:Null}" Action="Check" Descriptor="[&quot;Target: CheckBox (18,209,15,15)&quot; +&#xA;&quot;Anchor: Text 'Include inactive clients' (37,211,124,12)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Check - CheckBox" sap:VirtualizedContainerService.HintSize="338,78" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_1" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
                           <p:CvCheckWithDescriptor.DesignTimeDescriptor>
                             <uc:CvDescriptor Id="3fe5cfad-5028-4219-ae2f-b2a09dd5b256">
                               <uc:CvDescriptor.Anchors>
@@ -325,7 +336,7 @@
                           </p:CvCheckWithDescriptor.DesignTimeDescriptor>
                         </p:CvCheckWithDescriptor>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[&quot;Clicking Search Button&quot;]" />
-                        <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text 'Search' (634,212,40,12)&quot; +&#xD;&#xA;&quot;Anchor: Button (595,200,120,35)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Click - Search Button" sap:VirtualizedContainerService.HintSize="338,126" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_1" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
+                        <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text 'Search' (634,212,40,12)&quot; +&#xA;&quot;Anchor: Button (595,200,120,35)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Click - Search Button" sap:VirtualizedContainerService.HintSize="338,126" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_1" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
                           <p:CvClickWithDescriptor.CursorPosition>
                             <ui:CursorPosition Position="Center">
                               <ui:CursorPosition.OffsetX>
@@ -362,7 +373,7 @@
                       </Sequence>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -373,7 +384,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,383" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                          <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_8">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -393,7 +404,180 @@
                     </TryCatch.Catches>
                   </TryCatch>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;Clicking Client Info&quot;]" />
-                  <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" Descriptor="[&quot;Target: Text '&quot;+ClientIDInfo+&quot;' (20,276,52,13)&quot; +&#xD;&#xA;&quot;Anchor: Text 'ClientID' (19,255,46,12)&quot;]" DesignTimeCacheId="a23c84a1-a588-496c-bfe7-19258d22dea9" DesignTimeScaleFactor="1" DisplayName="CV Click - Client ID" sap:VirtualizedContainerService.HintSize="438,126" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_3" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
+                  <TryCatch sap2010:Annotation.AnnotationText="Try - Clicking Client Id to get the client id&#xD;&#xA;System.exception - &quot;FAILED_TO_CLICK_CLIENT_ID&quot;" DisplayName="Try Catch - Clicking Client ID" sap:VirtualizedContainerService.HintSize="438,235" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch.Try>
+                      <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" Descriptor="[&quot;Target: Text '&quot;+ClientIDInfo+&quot;' (20,276,52,13)&quot; +&#xA;&quot;Anchor: Text 'ClientID' (19,255,46,12)&quot;]" DesignTimeCacheId="a23c84a1-a588-496c-bfe7-19258d22dea9" DesignTimeScaleFactor="1" DisplayName="CV Click - Client ID" sap:VirtualizedContainerService.HintSize="334,126" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_3" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
+                        <p:CvClickWithDescriptor.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </p:CvClickWithDescriptor.CursorPosition>
+                        <p:CvClickWithDescriptor.DesignTimeDescriptor>
+                          <uc:CvDescriptor Id="748708e0-80fe-47d1-85ba-c22d2b4f6ac0">
+                            <uc:CvDescriptor.Anchors>
+                              <x:Array Type="uc:CvElementDescriptor">
+                                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="19, 255, 46, 12" ElementType="Text" Text="ClientID" />
+                              </x:Array>
+                            </uc:CvDescriptor.Anchors>
+                            <uc:CvDescriptor.Target>
+                              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="20, 276, 52, 13" ElementType="Text" Text="EU67601" />
+                            </uc:CvDescriptor.Target>
+                          </uc:CvDescriptor>
+                        </p:CvClickWithDescriptor.DesignTimeDescriptor>
+                        <p:CvClickWithDescriptor.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="ae2410c8-a1e1-430b-8594-ce9e4734fb73">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </p:CvClickWithDescriptor.Target>
+                      </p:CvClickWithDescriptor>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_4" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                            <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_6" MessageCode="FAILED_TO_CLICK_CLIENT_ID" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                              <eue:Throw_Business_Exception.ExtraMessage>
+                                <InArgument x:TypeArguments="x:String">
+                                  <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                                </InArgument>
+                              </eue:Throw_Business_Exception.ExtraMessage>
+                            </eue:Throw_Business_Exception>
+                          </Sequence>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,101" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="[&quot;Getting Client Information&quot;]" />
+                  <TryCatch sap2010:Annotation.AnnotationText="Try - Getting The client info to get client details&#xD;&#xA;System.exception - " DisplayName="Try Catch - Getting Client Info" sap:VirtualizedContainerService.HintSize="438,375" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch.Try>
+                      <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Getting Client Information" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="GetFullText_1">
+                        <ui:GetFullText.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9d72b58e-2100-4d2a-a63a-c6e43ba8150a" Selector="&lt;wnd app='acme-system3.exe' ctrlname='ClientDetails' /&gt;&lt;wnd ctrlname='groupBox1' /&gt;&lt;wnd ctrlname='label3' /&gt;" WaitForReady="COMPLETE">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                          </ui:Target>
+                        </ui:GetFullText.Target>
+                        <ui:GetFullText.Text>
+                          <OutArgument x:TypeArguments="x:String">[ClientInfo]</OutArgument>
+                        </ui:GetFullText.Text>
+                      </ui:GetFullText>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_5" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                            <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_7" MessageCode="FAILED_TO_GET_CLIENT_ID" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                              <eue:Throw_Business_Exception.ExtraMessage>
+                                <InArgument x:TypeArguments="x:String">
+                                  <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                                </InArgument>
+                              </eue:Throw_Business_Exception.ExtraMessage>
+                            </eue:Throw_Business_Exception>
+                          </Sequence>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,101" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[ClientInfo]" />
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="438,203" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[ClientName]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(ClientInfo,"[A-Za-z\s]*\n(?=Address)").Value]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[ClientAddress]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(ClientInfo,"(?&lt;=Address:).*").Value]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[ClientCity]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(ClientInfo,"(?&lt;=City:).*").Value]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[ClientCountry]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(ClientInfo,"(?&lt;=Country:).*").Value]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,101" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Trace" Message="[&quot;Adding the value in the data table&quot;]" />
+                  <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Adding the client info in the data table" ArrayRow="[{ClientName,ClientAddress,ClientCity,ClientCountry}]" DataTable="[ClientTable]" DisplayName="Adding Value In Data Table" sap:VirtualizedContainerService.HintSize="438,226" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:AddDataRow>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,101" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Trace" Message="[&quot;Closing The Page&quot;]" />
+                  <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: CloseButton (710,7,17,17)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Search using the form and the results will be displayed below.' (198,112,336,14)&quot;]" DesignTimeCacheId="554ff8b9-2a38-4c5b-9189-2417fbf77700" DesignTimeScaleFactor="1" DisplayName="CV Click - CloseButton" sap:VirtualizedContainerService.HintSize="438,126" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_4" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
                     <p:CvClickWithDescriptor.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -405,19 +589,19 @@
                       </ui:CursorPosition>
                     </p:CvClickWithDescriptor.CursorPosition>
                     <p:CvClickWithDescriptor.DesignTimeDescriptor>
-                      <uc:CvDescriptor Id="748708e0-80fe-47d1-85ba-c22d2b4f6ac0">
+                      <uc:CvDescriptor Id="3e0b9014-7497-4c1b-ad8d-a1e09609475a">
                         <uc:CvDescriptor.Anchors>
                           <x:Array Type="uc:CvElementDescriptor">
-                            <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="19, 255, 46, 12" ElementType="Text" Text="ClientID" />
+                            <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="198, 112, 336, 14" ElementType="Text" Text="Search using the form and the results will be displayed below." />
                           </x:Array>
                         </uc:CvDescriptor.Anchors>
                         <uc:CvDescriptor.Target>
-                          <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="20, 276, 52, 13" ElementType="Text" Text="EU67601" />
+                          <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="710, 7, 17, 17" ElementType="CloseButton" />
                         </uc:CvDescriptor.Target>
                       </uc:CvDescriptor>
                     </p:CvClickWithDescriptor.DesignTimeDescriptor>
                     <p:CvClickWithDescriptor.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="ae2410c8-a1e1-430b-8594-ce9e4734fb73">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="e9cadbca-8d0c-484d-83f2-0b09f5ac4ccb">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
@@ -427,51 +611,17 @@
                       </ui:Target>
                     </p:CvClickWithDescriptor.Target>
                   </p:CvClickWithDescriptor>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="438,411" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-                    <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,283" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <p:CvGetTextWithDescriptor DelayScreenshotAfterScroll="{x:Null}" Descriptor="[&quot;Target: AnyWordGroup (21,183,72,16)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Client Details' (21,151,73,12)&quot;]" DesignTimeCacheId="6fdddffd-ae87-49af-91d1-6c56e8c11265" DesignTimeScaleFactor="1" DisplayName="CV Get Text - Any Word Group" sap:VirtualizedContainerService.HintSize="338,161" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_1" NumberOfScrolls="2" RefreshBefore="True" ScrollDirection="None" Version="V5">
-                          <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
-                            <uc:CvDescriptor Id="82412719-83c8-4a95-a5da-2ce2f3279f06">
-                              <uc:CvDescriptor.Anchors>
-                                <x:Array Type="uc:CvElementDescriptor">
-                                  <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="21, 151, 73, 12" ElementType="Text" Text="Client Details" />
-                                </x:Array>
-                              </uc:CvDescriptor.Anchors>
-                              <uc:CvDescriptor.Target>
-                                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="21, 183, 72, 16" ElementType="AnyWordGroup" />
-                              </uc:CvDescriptor.Target>
-                            </uc:CvDescriptor>
-                          </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
-                        </p:CvGetTextWithDescriptor>
-                      </Sequence>
-                    </ui:CommentOut.Body>
-                  </ui:CommentOut>
-                  <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text 'WindowsForms10.STATIC.a...'" sap:VirtualizedContainerService.HintSize="438,96" sap2010:WorkflowViewState.IdRef="GetFullText_1">
-                    <ui:GetFullText.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9d72b58e-2100-4d2a-a63a-c6e43ba8150a" Selector="&lt;wnd app='acme-system3.exe' ctrlname='ClientDetails' /&gt;&lt;wnd ctrlname='groupBox1' /&gt;&lt;wnd ctrlname='label3' /&gt;" WaitForReady="COMPLETE">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                      </ui:Target>
-                    </ui:GetFullText.Target>
-                    <ui:GetFullText.Text>
-                      <OutArgument x:TypeArguments="x:String">[ClientInfo]</OutArgument>
-                    </ui:GetFullText.Text>
-                  </ui:GetFullText>
                 </Sequence>
               </ActivityAction>
             </p:CVScope.Body>
+            <p:CVScope.DesignTimeCache>
+              <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" DataSent="False" />
+            </p:CVScope.DesignTimeCache>
             <p:CVScope.DesignTimeCacheContainer>
               <uc:CvCacheContainer>
                 <uc:CvCacheContainer.Caches>
-                  <scg:List x:TypeArguments="uc:CVCache" Capacity="6">
-                    <uc:CVCache DataSent="False" DisplayName="Screen CV Element Exists - Inp (Main)" Id="554ff8b9-2a38-4c5b-9189-2417fbf77700" InformativeScreenshot="469d5568c72a7c5600211a4e59d2c3bd" LogicalPosition="706, 220" OcrText="ACME System 3 X Search for Client by ID Search using the form and the results will be displayed below. Search Form Include inactive clients Search ClientID Name City Country No search results" Position="706, 220" ScreenshotGuid="91cbb5d8-ef52-4d26-9968-d340761fad59" ServerVersion="1">
+                  <scg:List x:TypeArguments="uc:CVCache" Capacity="3">
+                    <uc:CVCache DataSent="False" DisplayName="Screen CV Element Exists - Inp " Id="554ff8b9-2a38-4c5b-9189-2417fbf77700" InformativeScreenshot="469d5568c72a7c5600211a4e59d2c3bd" LogicalPosition="593, 285" OcrText="ACME System 3 X Search for Client by ID Search using the form and the results will be displayed below. Search Form Include inactive clients Search ClientID Name City Country No search results" Position="593, 285" ScreenshotGuid="91cbb5d8-ef52-4d26-9968-d340761fad59" ServerVersion="1">
                       <uc:CVCache.CvAnchorRelations>
                         <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="4">
                           <uc:AnchorRelationInfo IsTargetText="False" Target="1">
@@ -791,7 +941,7 @@
                         </scg:List>
                       </uc:CVCache.OcrTexts>
                     </uc:CVCache>
-                    <uc:CVCache DataSent="False" DisplayName="Screen CV Get Text - '' " Id="6fdddffd-ae87-49af-91d1-6c56e8c11265" InformativeScreenshot="aa4269f655a0438c25426f19def2c121" LogicalPosition="624, 349" OcrText="ACME System 3 X Client Details For this particular client. you may consult the Account Movements and Issued Checks Client Details Floy Shedd Address: 90 quai Saint-Nicolas City: TOULOUSE Country: France Client Accounts Client Checks Change Client Details" Position="624, 349" ScreenshotGuid="6ae399b8-ea9b-4f50-8108-568a7d29d1db" ServerVersion="1">
+                    <uc:CVCache DataSent="False" DisplayName="Main Screen" Id="e257b9ad-3ccd-48f9-8876-ffd9f1cc5885" InformativeScreenshot="aa4269f655a0438c25426f19def2c121" LogicalPosition="593, 285" OcrText="ACME System 3 X Client Details For this particular client. you may consult the Account Movements and Issued Checks Client Details Floy Shedd Address: 90 quai Saint-Nicolas City: TOULOUSE Country: France Client Accounts Client Checks Change Client Details" Position="593, 285" ScreenshotGuid="2480db30-6621-420f-9566-8a486076eddf" ServerVersion="1">
                       <uc:CVCache.CvAnchorRelations>
                         <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="4">
                           <uc:AnchorRelationInfo IsTargetText="True" Target="30">
@@ -811,7 +961,7 @@
                         </scg:List>
                       </uc:CVCache.CvAnchorRelations>
                       <uc:CVCache.CvUiElements>
-                        <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="8">
+                        <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="16">
                           <uc:CvElementInfo Category="Button" Region="253, 392, 230, 38" />
                           <uc:CvElementInfo Category="Button" Region="13, 393, 230, 37" />
                           <uc:CvElementInfo Category="Icon" Region="8, 6, 18, 19" />
@@ -820,6 +970,7 @@
                           <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="11, 157, 710, 158" />
                           <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1, 37, 731, 58" />
                           <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="10, 99, 718, 37" />
+                          <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="13, 392, 224, 36" />
                         </scg:List>
                       </uc:CVCache.CvUiElements>
                       <uc:CVCache.OcrTexts>
@@ -878,7 +1029,7 @@
               </ActivityFunc>
             </p:CVScope.OCREngine>
             <p:CVScope.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a6f24b96-ed4f-4cfd-9e44-c5625c13583b" InformativeScreenshot="c6025b95bc18acd26bbedb2d57985a68" Selector="&lt;wnd app='acme-system3.exe' ctrlname='SearchingClient' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a6f24b96-ed4f-4cfd-9e44-c5625c13583b" InformativeScreenshot="d295d3be80b3cd6cbbdc9f4d6a05a981" Selector="&lt;wnd app='acme-system3.exe' ctrlname='ClientDetails' /&gt;" WaitForReady="INTERACTIVE">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
