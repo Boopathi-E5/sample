@@ -1,0 +1,34 @@
+Settings:
+  Namespace: "E5.ACME-System" #The root namespace which would be used
+Constants:
+  MaxRetryCount: "0" # Max number of retries
+ReturnCodes:
+  FAILED_TO_GET_FLOWCONFIG : "E0001 ## failed to get flow config from the storage bucket"
+  FAILED_TO_GET_ACME_SYSTEM_LOGIN : "E0002 ## failed to get acme system login credentials from assets"
+  LAUNCH_PROCESS_FAILED : "E0003 ## launch process is failed due to unknown error"
+  INVALID_INPUT_PARAMETERS_LAUNCH : "E0004 ## invalid input parameters is passed or empty parameters is passed to module"
+  INVALID_APPLICATION_PATH : "E0005 ## invalid application is passed or file is not exist"
+  APPLICATION_IS_NOT_OPENED : "E0006 ## application window is closed or invalid window is opened"
+  INVALID_LANDING_PAGE_START_PROCESS : "E0007 ## invalid landing page in launch process"
+  START_PROCESS_FAILED : "E0008 ## Acme system process is failed due to unknown error"
+  INVALID_INPUT_PARAMETERS_LOGIN_MODULE : "E0009 ## invalid input parameters is passed in  login module"
+  INVALID_LANDING_PAGE_LOGIN_MODULE : "E0010 ## invalid landing page in login module"
+  ENTERING_CREDENTIALS_FAILED : "E0011 ## failed to enter the username or password"
+  FAILED_CLICK_LOGIN_BUTTON : "E0012 ## failed to click login button"
+  INVALID_EXIT_PAGE : "E0013 ## invalid exit page in login module"
+  LOGIN_FAILED : "E0014 ## login failed dure to unknown error"
+  INVALID_LANDING_PAGE_TABLE_EXTRACT : "E0015 ## invalid landing page in table extraction module"
+  TABLE_EXTRACTION_FAILED : "E0016 ## failed to extract the table from the acme system"
+  TABLE_EXTRACTION_MODULE_FAILED : "E0017 ## table extraction module is failed due to unknown error"
+  INVALID_LANDING_PAGE_CLIENT_DETAILS_MODULE : "E0018 ## invalid landing page in client page navigation module"
+  OPENING_CLIENT_PANEL_FAILED : "E0019 ## failed to open client panel"
+  INVALID_EXIT_PAGE_NAVIGATION : "E0020 ## invalid exit page in navigation"
+  CLIENT_PANEL_NAVIGATION_FAILED : "E0021 ## navigation module is failed due to unknown error"
+  INVALID_INPUT_PARAMETERS_GETTING_CLIENT_DETAILS : "E0022 ## invalid input parameters is passed in getting client details module"
+  EMPTY_OR_INVALID_CLIENT_ID : "E0023 ## invalid or empty client id is passed"
+  FAILED_ENTER_CLIENT_ID : "E0024 ## failed to enter client id in the input box"
+  FAILED_TO_CLICK_CLIENT_ID : "E0025 ## failed to click client in the table"
+  FAILED_TO_GET_CLIENT_INFO : "E0026 ## failed to get client details"
+  FAILED_TO_CLOSE_PAGE : "E0027 ## Failed to close page"
+  GATHERING_CLIENT_INFO_FAILED : "E0028 ## failed to ge client information"
+  
