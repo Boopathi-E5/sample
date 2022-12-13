@@ -10,11 +10,16 @@
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
+    <x:Property sap2010:Annotation.AnnotationText="The application name to start the process" Name="ApplicationName" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,6079</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1732,6039</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Test_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="84">
@@ -63,6 +68,8 @@
       <x:String>UiPath.UIAutomationCore.Contracts</x:String>
       <x:String>Element5_Core.Utils.Exception</x:String>
       <x:String>UiPath.Activities.System.Properties</x:String>
+      <x:String>Element5_Core.Utils.Hooks.Execution_Hooks</x:String>
+      <x:String>System.Net</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -96,7 +103,6 @@
       <AssemblyReference>YamlDotNet</AssemblyReference>
       <AssemblyReference>EasyEncryption</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Configuration.Install</AssemblyReference>
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
@@ -105,6 +111,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Getting the client table and entering the client info to the client details" DisplayName="Acme System Cv Intergration" sap:VirtualizedContainerService.HintSize="696,5974" sap2010:WorkflowViewState.IdRef="Sequence_15">
@@ -115,7 +122,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="634,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Acme System Cv Intergration Process Started&quot;]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Try - Cv intergration&#xD;&#xA;System.exception - &quot;CV-INTERGRATION_FAILED&quot;&#xD;&#xA;Business.exception - Rethrow" DisplayName="Try Catch - CV Intergration" sap:VirtualizedContainerService.HintSize="634,5539" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+    <TryCatch sap2010:Annotation.AnnotationText="Try - Cv intergration&#xA;System.exception - &quot;CV-INTERGRATION_FAILED&quot;&#xA;Business.exception - Rethrow" DisplayName="Try Catch - CV Intergration" sap:VirtualizedContainerService.HintSize="634,5539" sap2010:WorkflowViewState.IdRef="TryCatch_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -139,7 +146,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <euc:Load_Config_File ConfigNamespace="E5.ACME-System" ConfigYamlPath="[IO.Directory.GetCurrentDirectory +&quot;\Day 11\data\Config.yml&quot;]" DisplayName="Load Config File" sap:VirtualizedContainerService.HintSize="534,195" sap2010:WorkflowViewState.IdRef="Load_Config_File_2" ___Prefix="[IO.Directory.GetCurrentDirectory]" />
-          <TryCatch sap2010:Annotation.AnnotationText="Try - Getting the flowconfig&#xD;&#xA;System.exception - &quot;FAILED_TO_GET_FLOWCONFIG&quot;" DisplayName="Try Catch - Getting The FlowConfig" sap:VirtualizedContainerService.HintSize="534,996" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch sap2010:Annotation.AnnotationText="Try - Getting the flowconfig&#xA;System.exception - &quot;FAILED_TO_GET_FLOWCONFIG&quot;" DisplayName="Try Catch - Getting The FlowConfig" sap:VirtualizedContainerService.HintSize="534,996" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -197,7 +204,7 @@
             </TryCatch.Catches>
           </TryCatch>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="534,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Acme System Login Credentials&quot;]" />
-          <TryCatch sap2010:Annotation.AnnotationText="Try - getting acme system credentilas from assets&#xD;&#xA;System.exception - &quot;FAILED_TO_GET_ACME_SYSTEM_LOGIN&quot;" DisplayName="Try Catch  - Getting Credentials" sap:VirtualizedContainerService.HintSize="534,469" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+          <TryCatch sap2010:Annotation.AnnotationText="Try - getting acme system credentilas from assets&#xA;System.exception - &quot;FAILED_TO_GET_ACME_SYSTEM_LOGIN&quot;" DisplayName="Try Catch  - Getting Credentials" sap:VirtualizedContainerService.HintSize="534,469" sap2010:WorkflowViewState.IdRef="TryCatch_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -218,7 +225,7 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,383" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -238,7 +245,7 @@
             </TryCatch.Catches>
           </TryCatch>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="534,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Opening Acme System&quot;]" />
-          <TryCatch sap2010:Annotation.AnnotationText="try - Launching Acme System&#xD;&#xA;System.exception - &quot;LAUNCH_PROCESS_FAILED&quot;&#xD;&#xA;Business.exception - rethrow" DisplayName="Try Catch - Launch Process" sap:VirtualizedContainerService.HintSize="534,438" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+          <TryCatch sap2010:Annotation.AnnotationText="try - Launching Acme System&#xA;System.exception - &quot;LAUNCH_PROCESS_FAILED&quot;&#xA;Business.exception - rethrow" DisplayName="Try Catch - Launch Process" sap:VirtualizedContainerService.HintSize="534,438" sap2010:WorkflowViewState.IdRef="TryCatch_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -247,8 +254,8 @@
             <TryCatch.Try>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke AcmeSystemLaunch workflow" sap:VirtualizedContainerService.HintSize="334,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Day 11\AcmeSystemLaunch.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="ApplicationPath">
-                    <Literal x:TypeArguments="x:String">D:\Users\mohammed.kale\Downloads\ACME-System3-v0.1\ACME-System3.exe</Literal>
+                  <InArgument x:TypeArguments="x:String" x:Key="ApplicationName">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ApplicationName" />
                   </InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
@@ -279,7 +286,7 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="ThrowException" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <Sequence DisplayName="ThrowException" sap:VirtualizedContainerService.HintSize="400,383" sap2010:WorkflowViewState.IdRef="Sequence_10">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -300,12 +307,8 @@
           </TryCatch>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Login workflow" sap:VirtualizedContainerService.HintSize="534,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Day 11\Login.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="AcmeUsername">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="AcmeSystemUsername" />
-              </InArgument>
-              <InArgument x:TypeArguments="ss:SecureString" x:Key="AcmePassword">
-                <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="AcmeSystemPassword" />
-              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="AcmeUsername">[AcmeSystemUsername]</InArgument>
+              <InArgument x:TypeArguments="ss:SecureString" x:Key="AcmePassword">[AcmeSystemPassword]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TableExtract workflow" sap:VirtualizedContainerService.HintSize="534,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Day 11\TableExtract.xaml">
@@ -318,7 +321,7 @@
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:BuildDataTable sap2010:Annotation.AnnotationText="Creating datatable to store the client information" DataTable="[ClientInfoTable]" DisplayName="Build Data Table - Client Information" sap:VirtualizedContainerService.HintSize="534,100" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Client_x0020_Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Client_x0020_Address&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Client_x0020_City&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Client_x0020_Country&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+          <ui:BuildDataTable sap2010:Annotation.AnnotationText="Creating datatable to store the client information" DataTable="[ClientInfoTable]" DisplayName="Build Data Table - Client Information" sap:VirtualizedContainerService.HintSize="534,100" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Client_x0020_Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Client_x0020_Address&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Client_x0020_City&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Client_x0020_Country&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -346,12 +349,8 @@
                     <TryCatch.Try>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GettingClientDetails workflow" sap:VirtualizedContainerService.HintSize="334,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Day 11\GettingClientDetails.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="sd:DataRow" x:Key="ClientInformation">
-                            <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="CurrentClient" />
-                          </InArgument>
-                          <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="ClientDetails">
-                            <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="ClientValue" />
-                          </OutArgument>
+                          <InArgument x:TypeArguments="sd:DataRow" x:Key="ClientInformation">[CurrentClient]</InArgument>
+                          <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="ClientDetails">[ClientValue]</OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </TryCatch.Try>
@@ -367,7 +366,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Exception Handling" sap:VirtualizedContainerService.HintSize="825,833" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                          <Sequence DisplayName="Exception Handling" sap:VirtualizedContainerService.HintSize="829,945" sap2010:WorkflowViewState.IdRef="Sequence_13">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -375,7 +374,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="767,89" sap2010:WorkflowViewState.IdRef="Log_Exception_5" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-                            <If sap2010:Annotation.AnnotationText="then - Close the page&#xA;Else - rethrow" Condition="[Exception.Message.Equals(&quot;E5.ACME-System.E0023&quot;) Or Exception.Message.Equals(&quot;E5.ACME-System.E0026&quot;)]" DisplayName="If - Checking The Exception" sap:VirtualizedContainerService.HintSize="767,916" sap2010:WorkflowViewState.IdRef="If_1">
+                            <If sap2010:Annotation.AnnotationText="then - Close the page&#xA;Else - rethrow" Condition="[Exception.Message.Equals(&quot;E5.ACME-System.E0023&quot;) Or Exception.Message.Equals(&quot;E5.ACME-System.E0026&quot;)]" DisplayName="If - Checking The Exception" sap:VirtualizedContainerService.HintSize="767,779" sap2010:WorkflowViewState.IdRef="If_1">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>

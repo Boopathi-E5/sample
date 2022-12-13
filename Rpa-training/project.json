@@ -4,6 +4,7 @@
   "main": "Main.xaml",
   "dependencies": {
     "Acme.Library": "[1.0.6]",
+    "FindFileLocation.Activities": "[1.0.0]",
     "UiPath.Excel.Activities": "[2.16.0]",
     "UiPath.Mail.Activities": "[1.18.0]",
     "UiPath.PDF.Activities": "[3.10.1]",
