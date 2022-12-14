@@ -1,0 +1,6 @@
+Settings:
+ Key01: "Value01"
+ Key02: "Value02"
+ name1: &name Larry Wall
+ name2: *name
+

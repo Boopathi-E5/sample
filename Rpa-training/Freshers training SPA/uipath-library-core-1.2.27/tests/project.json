@@ -1,0 +1,38 @@
+{
+  "name": "Element5.Core.Test",
+  "description": "Test suite for Element5 Core library for UiPath",
+  "main": "Execute Test Suite.xaml",
+  "dependencies": {
+    "GetterSetter.Activities": "[1.0.4]",
+    "UiPath.Excel.Activities": "[2.8.1-preview]",
+    "UiPath.Mail.Activities": "[1.8.1-preview]",
+    "UiPath.System.Activities": "[20.2.0-preview]",
+    "UiPath.UIAutomation.Activities": "[20.2.0-preview]",
+    "UiPath.WebAPI.Activities": "[1.4.4]"
+  },
+  "webServices": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "20.2.0.108",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "fileInfoCollection": []
+  },
+  "expressionLanguage": "VisualBasic"
+}

@@ -1,0 +1,34 @@
+[
+   {
+      "patientName":"Palash",
+      "mrNo":"EC123",
+      "episodeId":"746538",
+      "payerType":"Organisation",
+      "status":"Success",
+      "reason":""
+   },
+   {
+      "patientName":"Thillai",
+      "mrNo":"EC124",
+      "episodeId":"746539",
+      "payerType":"Organisation",
+      "status":"Success",
+      "reason":"Technical Issue"
+   },
+   {
+      "patientName":"John",
+      "mrNo":"EC125",
+      "episodeId":"746531",
+      "payerType":"Organisation",
+      "status":"Success",
+      "reason":""
+   },
+   {
+      "patientName":"Raja",
+      "mrNo":"EC127",
+      "episodeId":"746535",
+      "payerType":"Organisation",
+      "status":"Success",
+      "reason":"Please take some action"
+   }
+]

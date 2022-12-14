@@ -1,0 +1,65 @@
+{
+  "name": "Element5.Core",
+  "description": "UiPath library which provides E5 specific helper methods",
+  "main": "NewActivity.xaml",
+  "dependencies": {
+    "Alphabet.Workflow.Activities": "[3.1.0]",
+    "BalaReva.ZipUnzip.Activities": "2019.4.1",
+    "EasyEncryption": "1.0.2",
+    "EmailValidation": "[1.0.3]",
+    "GetterSetter.Activities": "1.0.4",
+    "UiPath.Mail.Activities": "[1.7.2]",
+    "UiPath.System.Activities": "[19.10.1]",
+    "UiPath.UIAutomation.Activities": "19.11.2",
+    "UiPath.WebAPI.Activities": "[1.4.4]",
+    "YamlDotNet": "[8.1.0]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "20.2.0.108",
+  "projectVersion": "1.2.27",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": false
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Library",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": [
+        "Utils/Hooks/Execution Hooks/Login.xaml",
+        "Lazy Init Library.xaml",
+        "GetNameSpacePrefix.xaml",
+        "Utils/Notifications Channel/Gmail/Get Mail Name Key.xaml",
+        "Utils/Store/SetValue.xaml",
+        "Utils/Hooks/Execution Hooks/_Test.xaml",
+        "Utils/Exception/Construct Exception Message.xaml",
+        "Utils/Hooks/Execution Hooks/__Test.xaml",
+        "Utils/Store/__Test.xaml"
+      ]
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Legacy"
+}

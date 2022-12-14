@@ -1,0 +1,49 @@
+﻿
+=================================================
+Starting new set of 1 tests at 05:44:30  PM, 29/03/2020
+=================================================
+05:44:30 PM	Test 1 PASS  ---> Suite\Config\Load Config File\TestCase-001.xaml
+================================
+05:44:30	Summary: 1/1 Tests Passed. Total execution time: 1 seconds
+
+=================================================
+Starting new set of 1 tests at 06:03:28  PM, 29/03/2020
+=================================================
+06:03:29 PM	Test 1 FAIL  ---> Suite\Config\Load Config File\TestCase-001.xaml ---> Success
+================================
+06:03:29	Summary: 0/1 Tests Passed. Total execution time: 1 seconds
+
+=================================================
+Starting new set of 1 tests at 06:05:29  PM, 29/03/2020
+=================================================
+06:05:30 PM	Test 1 FAIL  ---> Suite\Config\Load Config File\TestCase-001.xaml ---> Success
+================================
+06:05:30	Summary: 0/1 Tests Passed. Total execution time: 1 seconds
+
+=================================================
+Starting new set of 1 tests at 06:07:53  PM, 29/03/2020
+=================================================
+06:07:54 PM	Test 1 FAIL  ---> Suite\Config\Load Config File\TestCase-001.xaml ---> Success
+================================
+06:07:54	Summary: 0/1 Tests Passed. Total execution time: 1 seconds
+
+=================================================
+Starting new set of 1 tests at 06:08:49  PM, 29/03/2020
+=================================================
+06:08:49 PM	Test 1 FAIL  ---> Suite\Config\Load Config File\TestCase-001.xaml ---> Success
+================================
+06:08:50	Summary: 0/1 Tests Passed. Total execution time: 1 seconds
+
+=================================================
+Starting new set of 1 tests at 06:10:56  PM, 29/03/2020
+=================================================
+06:10:57 PM	Test 1 PASS  ---> Suite\Config\Load Config File\TestCase-001.xaml
+================================
+06:10:57	Summary: 1/1 Tests Passed. Total execution time: 1 seconds
+
+=================================================
+Starting new set of 1 tests at 11:06:48  AM, 30/03/2020
+=================================================
+11:06:48 AM	Test 1 PASS  ---> Suite\Config\Load Config File\TestCase-001.xaml
+================================
+11:06:49	Summary: 1/1 Tests Passed. Total execution time: 1 seconds

@@ -1,0 +1,185 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="testt" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="WorkflowConfig" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1234,1206</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>testt_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="26">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>UiPath.Slack.Models</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="20">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Slack</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="testt" sap:VirtualizedContainerService.HintSize="535,1041" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Object" Name="secStr" />
+      <Variable x:TypeArguments="ss:SecureString" Name="inpval" />
+      <Variable x:TypeArguments="x:String" Name="errrr" />
+      <Variable x:TypeArguments="njl:JObject" Name="jsonObj" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap:VirtualizedContainerService.HintSize="493,306" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="ClientName" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Begin Task Execution workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="..\library\Utils\Hooks\Execution Hooks\Begin Task Execution.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="TaskName">
+            <Literal x:TypeArguments="x:String">HHA and Hospice visit note validation</Literal>
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="ProcessName">
+            <Literal x:TypeArguments="x:String">HHA and Hospice visit note validation</Literal>
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="HookURL">
+            <Literal x:TypeArguments="x:String">https://app-dev.e5.ai/api</Literal>
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="HookUserName">
+            <Literal x:TypeArguments="x:String">admin@butte.com</Literal>
+          </InArgument>
+          <InArgument x:TypeArguments="ss:SecureString" x:Key="HookPassword">
+            <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="New System.Net.NetworkCredential(&quot;&quot;,&quot;Test123$&quot;).SecurePassword" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="__Prefix">
+            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IO.Directory.GetCurrentDirectory" />
+          </InArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="TaskRunIdentifier" />
+          <OutArgument x:TypeArguments="x:String" x:Key="ClientName">
+            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ClientName" />
+          </OutArgument>
+          <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="SummaryFieldNames" />
+          <OutArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig" />
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke End Task Execution workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utils\Hooks\Execution Hooks\End Task Execution.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="__Prefix">
+            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IO.Directory.GetCurrentDirectory" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="TaskRunStatus">
+            <Literal x:TypeArguments="x:String">Completed</Literal>
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="TaskResultSummary">
+            <Literal x:TypeArguments="x:String">Completed the dummy job test</Literal>
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="TaskResult">
+            <Literal x:TypeArguments="x:String" Value="" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="FailureReason">
+            <Literal x:TypeArguments="x:String" Value="" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="SummaryResultObject">
+            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;{&quot;&quot;processed&quot;&quot;:0,&quot;&quot;failed&quot;&quot;:0,&quot;&quot;ignored&quot;&quot;:0}&quot;" />
+          </InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+    </Sequence>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="493,603" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="457,525" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Gmail" sap:VirtualizedContainerService.HintSize="415,433" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Initialize Gmail workflow" sap:VirtualizedContainerService.HintSize="373,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Utils/Notifications Channel/Gmail/Initialize Gmail.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="MailName">Mail001</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="GmailID">bot-account@getelement5.com</InArgument>
+                <InArgument x:TypeArguments="ss:SecureString" x:Key="Password">[New System.Net.NetworkCredential("", "Element5@123").SecurePassword]</InArgument>
+                <InArgument x:TypeArguments="s:String[]" x:Key="ToAddress">[{"yogesh@e5.ai"}]</InArgument>
+                <InArgument x:TypeArguments="s:String[]" x:Key="CCAddress" />
+                <InArgument x:TypeArguments="s:String[]" x:Key="BCCAddress" />
+                <InArgument x:TypeArguments="x:String" x:Key="__Prefix">[IO.Directory.GetCurrentDirectory]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Initialize Gmail workflow" sap:VirtualizedContainerService.HintSize="373,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Utils/Notifications Channel/Gmail/Initialize Gmail.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="MailName">Mail001</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="GmailID">bot-account@getelement5.com</InArgument>
+                <InArgument x:TypeArguments="ss:SecureString" x:Key="Password">[New System.Net.NetworkCredential("", "Element5@123").SecurePassword]</InArgument>
+                <InArgument x:TypeArguments="s:String[]" x:Key="ToAddress">[{"yogesh@e5.ai"}]</InArgument>
+                <InArgument x:TypeArguments="s:String[]" x:Key="CCAddress" />
+                <InArgument x:TypeArguments="s:String[]" x:Key="BCCAddress" />
+                <InArgument x:TypeArguments="x:String" x:Key="__Prefix">[IO.Directory.GetCurrentDirectory]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Send Gmail workflow" sap:VirtualizedContainerService.HintSize="373,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Utils/Notifications Channel/Gmail/Send Gmail.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="MailName">Mail001</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="MailSubject">Test 001</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="MailBody">&lt;html&gt;&lt;body&gt;Hello&lt;/body&gt;&lt;/html&gt;</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="__Prefix">[IO.Directory.GetCurrentDirectory]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>
