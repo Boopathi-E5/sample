@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,3346</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1732,3386</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>TableExtract_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="40">
@@ -90,11 +90,10 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>Element5.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Extracting the clien detatils from the table in the acme system" DisplayName="Extracting Table " sap:VirtualizedContainerService.HintSize="975,3241" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap2010:Annotation.AnnotationText="Extracting the clien detatils from the table in the acme system" DisplayName="Extracting Table " sap:VirtualizedContainerService.HintSize="975,3201" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -102,14 +101,14 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="913,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Table Extraction Process Started&quot;]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Try - extracting table content from the acme&#xD;&#xA;System.exception - &quot;TABLE_EXTRACTION_MODULE_FAILED&quot;&#xD;&#xA;Business,exception - rethrow" DisplayName="Try Catch - Table Extract" sap:VirtualizedContainerService.HintSize="913,2806" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="Try - extracting table content from the acme&#xA;System.exception - &quot;TABLE_EXTRACTION_MODULE_FAILED&quot;&#xA;Business,exception - rethrow" DisplayName="Try Catch - Table Extract" sap:VirtualizedContainerService.HintSize="913,2766" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="TableExtract" sap:VirtualizedContainerService.HintSize="875,2490" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="TableExtract" sap:VirtualizedContainerService.HintSize="875,2450" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="IsLandingPage" />
           </Sequence.Variables>
@@ -118,14 +117,14 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <TryCatch sap2010:Annotation.AnnotationText="Try - Checking application is opened by attaching the window&#xA;System.exception - &quot;APPLICATION_IS_NOT_OPENED&quot;" DisplayName="Try Catch - Checking Application Is Opened" sap:VirtualizedContainerService.HintSize="813,538" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+          <TryCatch sap2010:Annotation.AnnotationText="Try - Checking application is opened by attaching the window&#xA;System.exception - &quot;APPLICATION_IS_NOT_OPENED&quot;" DisplayName="Try Catch - Checking Application Is Opened" sap:VirtualizedContainerService.HintSize="813,498" sap2010:WorkflowViewState.IdRef="TryCatch_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window - Acme System Application" sap:VirtualizedContainerService.HintSize="434,259" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;wnd app='acme-system3.exe' ctrlname='Dashboard' /&gt;">
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window - Acme System Application" sap:VirtualizedContainerService.HintSize="434,219" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;wnd app='acme-system3.exe' ctrlname='Dashboard' /&gt;">
                 <ui:WindowScope.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
@@ -180,7 +179,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="779,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Landing Page Validation&quot;]" />
-                  <p:CvElementExistsWithDescriptor DelayScreenshotAfterScroll="{x:Null}" Descriptor="[&quot;Target: TableCell (12,204,690,244)&quot; +&#xD;&#xA;&quot;ColumnNumber: 1 (12,204,76,28)&quot; +&#xD;&#xA;&quot;RowContains: ClientID (12,204,76,28) RowCell: 1&quot;]" DesignTimeCacheId="525aa86d-4945-445d-8526-b956d92c910d" DesignTimeScaleFactor="1" DisplayName="CV Element Exists - Table Cell" sap:VirtualizedContainerService.HintSize="779,78" sap2010:WorkflowViewState.IdRef="CvElementExistsWithDescriptor_1" NumberOfScrolls="2" Result="[IsLandingPage]" ScrollDirection="None" Version="V5">
+                  <p:CvElementExistsWithDescriptor DelayScreenshotAfterScroll="{x:Null}" Descriptor="[&quot;Target: TableCell (12,204,690,244)&quot; +&#xA;&quot;ColumnNumber: 1 (12,204,76,28)&quot; +&#xA;&quot;RowContains: ClientID (12,204,76,28) RowCell: 1&quot;]" DesignTimeCacheId="525aa86d-4945-445d-8526-b956d92c910d" DesignTimeScaleFactor="1" DisplayName="CV Element Exists - Table Cell" sap:VirtualizedContainerService.HintSize="779,78" sap2010:WorkflowViewState.IdRef="CvElementExistsWithDescriptor_1" NumberOfScrolls="2" Result="[IsLandingPage]" ScrollDirection="None" Version="V5">
                     <p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
                       <uc:CvDescriptor Id="88fd37ea-495d-4c18-83de-9deb109aa235">
                         <uc:CvDescriptor.Target>
@@ -221,14 +220,14 @@
                     </If.Else>
                   </If>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="779,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Extractiong Table&quot;]" />
-                  <TryCatch sap2010:Annotation.AnnotationText="Try - Extracting Table from the acme&#xD;&#xA;system.exception - &quot;TABLE_EXTRACTION_FAILED&quot;" DisplayName="Try Catch - Table Extraction" sap:VirtualizedContainerService.HintSize="779,441" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <TryCatch sap2010:Annotation.AnnotationText="Try - Extracting Table from the acme&#xA;system.exception - &quot;TABLE_EXTRACTION_FAILED&quot;" DisplayName="Try Catch - Table Extraction" sap:VirtualizedContainerService.HintSize="779,441" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
-                      <p:CvExtractDataTableWithDescriptor InRegion="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Extracting table content from the acme system" DelayScreenshotAfterScroll="3000" Descriptor="[&quot;Target: Table (12,204,690,244)&quot;]" DesignTimeCacheId="525aa86d-4945-445d-8526-b956d92c910d" DesignTimeScaleFactor="1" DisplayName="CV Extract Table  - Extracting Table" sap:VirtualizedContainerService.HintSize="334,162" sap2010:WorkflowViewState.IdRef="CvExtractDataTableWithDescriptor_1" IgnoreEmptyRows="False" MaxTableScrollHeightInPixels="30000" NumberOfScrolls="1" RefreshBefore="True" Result="[ClientDetails]" Scroll="True" ScrollDirection="Down" Version="V5">
+                      <p:CvExtractDataTableWithDescriptor InRegion="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Extracting table content from the acme system" DelayScreenshotAfterScroll="3000" Descriptor="[&quot;Target: Table (12,204,690,244)&quot;]" DesignTimeCacheId="525aa86d-4945-445d-8526-b956d92c910d" DesignTimeScaleFactor="1" DisplayName="CV Extract Table  - Extracting Table" sap:VirtualizedContainerService.HintSize="334,162" sap2010:WorkflowViewState.IdRef="CvExtractDataTableWithDescriptor_1" IgnoreEmptyRows="True" MaxTableScrollHeightInPixels="30000" NumberOfScrolls="1" RefreshBefore="True" Result="[ClientDetails]" Scroll="True" ScrollDirection="Down" Version="V5">
                         <p:CvExtractDataTableWithDescriptor.DesignTimeDescriptor>
                           <uc:CvDescriptor Id="8744dd65-b022-4c01-a2ca-0b773b140d37">
                             <uc:CvDescriptor.Target>
@@ -277,6 +276,9 @@
                 </Sequence>
               </ActivityAction>
             </p:CVScope.Body>
+            <p:CVScope.DesignTimeCache>
+              <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" DataSent="False" />
+            </p:CVScope.DesignTimeCache>
             <p:CVScope.DesignTimeCacheContainer>
               <uc:CvCacheContainer>
                 <uc:CvCacheContainer.Caches>
