@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1732,4115</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1732,2555</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="39">
@@ -97,7 +97,7 @@
       <AssemblyReference>File.FindFileLocation.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Launching Acme System  Application" DisplayName="Acme System Launch" sap:VirtualizedContainerService.HintSize="1003,4050" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap2010:Annotation.AnnotationText="Launching Acme System  Application" DisplayName="Acme System Launch" sap:VirtualizedContainerService.HintSize="634,2370" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -105,15 +105,15 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="941,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Acme System Luanch Process Started&quot;]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Try - Start acme system&#xA;System.exception - &quot;START_PROCESS_FAILED&quot;&#xA;Business.exception - rethrow" DisplayName="Try Catch - Launching Acme System" sap:VirtualizedContainerService.HintSize="941,3615" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="572,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Acme System Luanch Process Started&quot;]" />
+    <TryCatch sap2010:Annotation.AnnotationText="Try - Start acme system&#xA;System.exception - &quot;START_PROCESS_FAILED&quot;&#xA;Business.exception - rethrow" DisplayName="Try Catch - Launching Acme System" sap:VirtualizedContainerService.HintSize="572,1935" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Launching the acme system application" DisplayName="Start Acme System" sap:VirtualizedContainerService.HintSize="903,3299" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="Launching the acme system application" DisplayName="Start Acme System" sap:VirtualizedContainerService.HintSize="534,1619" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="s:String[]" Name="ApplicationPath" />
           </Sequence.Variables>
@@ -124,10 +124,10 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="Validating the input parameters" DisplayName="Input Validation" sap:VirtualizedContainerService.HintSize="841,909" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence sap2010:Annotation.AnnotationText="Validating the input parameters" DisplayName="Input Validation" sap:VirtualizedContainerService.HintSize="472,121" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
@@ -161,11 +161,19 @@
               </If.Else>
             </If>
           </Sequence>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="841,101" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="[&quot;Finding The File Location&quot;]" />
-          <ffa:FindFileLocation ContinueOnError="{x:Null}" SearchDirectories="{x:Null}" DisplayName="Find File Location" FileLocations="[ApplicationPath]" FileName="[ApplicationName]" sap:VirtualizedContainerService.HintSize="841,94" sap2010:WorkflowViewState.IdRef="FindFileLocation_1" />
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="841,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening Acme System&quot;]" />
-          <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[ApplicationPath(0)]" sap:VirtualizedContainerService.HintSize="841,97" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
-          <TryCatch sap2010:Annotation.AnnotationText="Try - Checking application is opened by attaching the window&#xA;System.exception - &quot;APPLICATION_IS_NOT_OPENED&quot;" DisplayName="Try Catch - Checking Application Is Opened" sap:VirtualizedContainerService.HintSize="841,498" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+          <Sequence sap2010:Annotation.AnnotationText="Starting the application by application name" DisplayName="Launching Application" sap:VirtualizedContainerService.HintSize="472,666" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="[&quot;Finding The File Location&quot;]" />
+            <ffa:FindFileLocation ContinueOnError="{x:Null}" SearchDirectories="{x:Null}" DisplayName="Find File Location" FileLocations="[ApplicationPath]" FileName="[ApplicationName]" sap:VirtualizedContainerService.HintSize="338,94" sap2010:WorkflowViewState.IdRef="FindFileLocation_1" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening Acme System&quot;]" />
+            <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[ApplicationPath(0)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+          </Sequence>
+          <TryCatch sap2010:Annotation.AnnotationText="Try - Checking application is opened by attaching the window&#xA;System.exception - &quot;APPLICATION_IS_NOT_OPENED&quot;" DisplayName="Try Catch - Checking Application Is Opened" sap:VirtualizedContainerService.HintSize="472,498" sap2010:WorkflowViewState.IdRef="TryCatch_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -214,7 +222,7 @@
               </Catch>
             </TryCatch.Catches>
           </TryCatch>
-          <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="4f54d9f3-29ef-4e1d-87db-c54dff3ca8f7" DisplayName="CV Screen Scope - Acme System" sap:VirtualizedContainerService.HintSize="841,1106" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V5">
+          <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="4f54d9f3-29ef-4e1d-87db-c54dff3ca8f7" DisplayName="CV Screen Scope - Acme System" sap:VirtualizedContainerService.HintSize="472,61" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V5">
             <p:CVScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
@@ -369,11 +377,17 @@
             <p:CVScope.UseLocalServer>
               <InArgument x:TypeArguments="x:Boolean" />
             </p:CVScope.UseLocalServer>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
           </p:CVScope>
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="907,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="538,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -401,7 +415,7 @@
             </Sequence>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="907,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="538,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -417,6 +431,6 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="941,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Acme System Launch Process Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="572,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Acme System Launch Process Ended&quot;]" />
   </Sequence>
 </Activity>
