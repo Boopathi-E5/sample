@@ -227,7 +227,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
-                      <p:CvExtractDataTableWithDescriptor InRegion="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Extracting table content from the acme system" DelayScreenshotAfterScroll="3000" Descriptor="[&quot;Target: Table (12,204,690,244)&quot;]" DesignTimeCacheId="525aa86d-4945-445d-8526-b956d92c910d" DesignTimeScaleFactor="1" DisplayName="CV Extract Table  - Extracting Table" sap:VirtualizedContainerService.HintSize="334,162" sap2010:WorkflowViewState.IdRef="CvExtractDataTableWithDescriptor_1" IgnoreEmptyRows="True" MaxTableScrollHeightInPixels="30000" NumberOfScrolls="1" RefreshBefore="True" Result="[ClientDetails]" Scroll="True" ScrollDirection="Down" Version="V5">
+                      <p:CvExtractDataTableWithDescriptor DelayScreenshotAfterScroll="{x:Null}" InRegion="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Extracting table content from the acme system" Descriptor="[&quot;Target: Table (12,204,690,244)&quot;]" DesignTimeCacheId="525aa86d-4945-445d-8526-b956d92c910d" DesignTimeScaleFactor="1" DisplayName="CV Extract Table  - Extracting Table" sap:VirtualizedContainerService.HintSize="334,162" sap2010:WorkflowViewState.IdRef="CvExtractDataTableWithDescriptor_1" IgnoreEmptyRows="True" MaxTableScrollHeightInPixels="30000" NumberOfScrolls="1" RefreshBefore="True" Result="[ClientDetails]" Scroll="True" ScrollDirection="Down" Version="V5">
                         <p:CvExtractDataTableWithDescriptor.DesignTimeDescriptor>
                           <uc:CvDescriptor Id="8744dd65-b022-4c01-a2ca-0b773b140d37">
                             <uc:CvDescriptor.Target>
