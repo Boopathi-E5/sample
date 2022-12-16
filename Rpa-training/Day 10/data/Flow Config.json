@@ -1,0 +1,95 @@
+{
+    "Acme Launch" : {
+        "Browser Url" : "https://acme-test.uipath.com/login"
+    },
+
+    "Login" : {
+        "LoginAssetName" : "Acme Login Assets",
+        "Gmail Asset Name" : "Gmail Assets",
+        "Mail Subject" : "Work Item Data Table",
+        "Receiver" : "mdkaleelahamed@gmail.com"
+    },
+
+    "Gmail" : {
+        "GmailAssetName" : "Gmail Assets",
+        "Mail Subject" : "Work Item Data Table",
+        "Receiver" : "mdkaleelahamed@gmail.com",
+        "Subject" : "Work Item Data Table"
+    },
+    
+    "Dashboard Navigation" : {
+        "Main Menu Option" : "Work Items",
+        "Exit Page Work Item" : "Work Items",
+        "ReportsPage" : "Reports",
+        "ReportsExitPage" : "Reports - Download Monthly Report",
+        "ReportsSubMenu" : "Download Monthly Report",
+        "Yearly Report" : "Upload Yearly Report",
+        "Yearly Exit Page" : "Reports - Upload Yearly Report"
+    },
+
+    "Pagination" : {
+        "InitialPage" : 1,
+        "RowNumber" : 1,
+        "Next Action" : "Next",
+        "specific Action" : "Specific",
+        "Previous Action" : "Previous"
+    },
+
+    "Download File" : {
+        "Months" : ["January","February","March","April","May","June","July","August","September","October","November","December"],
+        "Year" : "2021",
+        "Pop Up Action" : "OK"
+    },
+
+    "Table Action" : {
+        "Column Name" : ["WIID","Description","Type","Date"],
+        "Get Data Action" : "getdata",
+        "Click Action" : "Click",
+        "Type Column" : "Type",
+        "WIID Column" : "WIID",
+        "Action Column" : "Actions",
+        "Search Action" : "Search",
+        "Status Column" : "Status"
+     },
+
+    "Read Client Details" : {
+        "Client Details" : ["TaxID","Name","Address","City"]
+    },
+
+    "Breadcrumb" : {
+        "Home Page" : "Home",
+        "Home Exit Page" : "Dashboard",
+        "Work items Page" : "Work Items",
+        "Exit Work Item" : "Work Items"
+    },
+
+    "Excel" : {
+        "Sheet Name" : "Yearly Report"
+    },
+
+    "Work Item" : {
+        "Item Type" : "WI4"
+    },
+
+    "Automation Hub" : {
+        "Hook Url" : "https://api-qa.e5.ai/",
+        "Asset Name" : "Automation Hub",
+        "Process Name" : "Generate Yearly Report",
+        "Task" : "Generate Yearly Report",
+        "IsHookRequired" : "True",
+        "WorkFlowToExecute" : "WorkItem4",
+        "Scratchpadupdate" : "true",
+        "ProcessReference" : "acmewireference",
+        "Time" : "1440",
+        "Retries" : "2",
+        "TaskRunCompletion" : "true",
+        "CreateNewTask" : "true"
+
+    },
+
+    "QueueName" : "AcmeWI4",
+
+    "AcmeIntergration" : "Performer",
+    "AcmeLogin" : "Acme System "
+
+}
